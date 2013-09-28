@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  upvotes: 
+  downvotes: 
+  fakevotes: 
+  user_id: 
+  category_id: 
+  status: 
+  source: MyString
+
+two:
+  title: MyString
+  content: MyText
+  upvotes: 
+  downvotes: 
+  fakevotes: 
+  user_id: 
+  category_id: 
+  status: 
+  source: MyString
