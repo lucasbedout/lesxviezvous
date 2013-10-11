@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  # before_action :check_post_user, only: [:edit, :update, :destroy]
+
   # GET /posts
   # GET /posts.json
   def index
@@ -35,7 +38,6 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
-
   end
 
   # POST /posts
@@ -86,5 +88,13 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  # Check if the post owner and the current user are identical
+  def check_post_user
+    # unless current_user.id == @post.user_id
+      # redirect_to @post, error: "Impossible d'éditer l'info d'un autre utilisateur" 
   end
 end
