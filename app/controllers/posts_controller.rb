@@ -95,6 +95,6 @@ class PostsController < ApplicationController
   # Check if the post owner and the current user are identical
   def check_post_user
     # unless current_user.id == @post.user_id
-      # redirect_to @post, error: "Impossible d'éditer l'info d'un autre utilisateur" 
+      # redirect_to post_path(Post.find(params[:id]), error: "Impossible d'éditer l'info d'un autre utilisateur" 
   end
 end
