@@ -38,6 +38,9 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    if (@post.created_at.to_time + 2.days) < Time.now
+      redirect_to post_path(@post), :flash => { :error => "Trop tard, les 48h sont depassees !" }
+    end
   end
 
   # POST /posts
