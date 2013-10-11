@@ -52,7 +52,7 @@ class PostsController < ApplicationController
     #   @post.user_id = current_user.id
     # else
     #   @post.user_id = 0  
-
+    # end
 
     respond_to do |format|
       if @post.save
@@ -85,6 +85,9 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
+    unless @post.status == 0
+      redirect_to post_path(@post), :flash => { :error => "Trop tard, votre information est en attente de validation !" }
+    end
     @post.destroy
 
     respond_to do |format|
@@ -99,5 +102,6 @@ class PostsController < ApplicationController
   def check_post_user
     # unless current_user.id == @post.user_id
       # redirect_to post_path(Post.find(params[:id]), error: "Impossible d'éditer l'info d'un autre utilisateur" 
+    # end
   end
 end
