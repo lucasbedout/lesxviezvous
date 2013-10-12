@@ -81,6 +81,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def vote
+    @post = Post.find(params[:id])
+
+    if params[:vote] == 0
+      @post.downvotes += 1
+    elsif params[:vote] == 1
+      @post.upvotes += 1
+    else
+      @post.fakevotes +=1
+
+    # respond_to do |format|
+    #   @post.save
+    #   format.js { render 'vote'}
+
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
