@@ -2,7 +2,9 @@ Lesxviezvous::Application.routes.draw do
   resources :posts
 
 
-  resources :categories
+  resources :categories do
+    resource :posts
+  end
 
 
   # The priority is based upon order of creation:
