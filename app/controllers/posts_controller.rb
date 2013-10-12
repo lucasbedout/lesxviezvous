@@ -82,19 +82,23 @@ class PostsController < ApplicationController
   end
 
   def vote
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
 
-    if params[:vote] == 0
+    if params[:vote] == '0'
       @post.downvotes += 1
-    elsif params[:vote] == 1
+    elsif params[:vote] == '1'
       @post.upvotes += 1
     else
       @post.fakevotes +=1
+    end
 
+    @post.save!
+    # Render javascript to change vote text to "Vote pris en compte"
     # respond_to do |format|
     #   @post.save
-    #   format.js { render 'vote'}
-
+    #   format.js { render 'vote' }
+    # end
+  end
 
   # DELETE /posts/1
   # DELETE /posts/1.json

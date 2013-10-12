@@ -1,5 +1,7 @@
 Lesxviezvous::Application.routes.draw do
-  resources :posts
+  resources :posts do
+    get 'vote'
+  end
 
 
   resources :categories do
