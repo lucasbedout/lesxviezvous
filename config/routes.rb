@@ -8,6 +8,9 @@ Lesxviezvous::Application.routes.draw do
     resource :posts
   end
 
+  get 'moderation', to: 'posts#moderate'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

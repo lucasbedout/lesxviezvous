@@ -100,6 +100,10 @@ class PostsController < ApplicationController
     # end
   end
 
+  def moderate
+    @post = Post.all.sample
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
