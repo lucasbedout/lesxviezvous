@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
 
-  # before_action :check_post_user, only: [:edit, :update, :destroy]
-
   # GET /posts
   # GET /posts.json
   def index
@@ -47,12 +45,13 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post]) # params : content, category, source
-
-    # if current_user
-    #   @post.user_id = current_user.id
-    # else
-    #   @post.user_id = 0  
-    # end
+    if current_user && !current_user.uid.blank?
+      @post.user_id = current_user.uid
+    elsif current_user
+      @post.user_id = current_user.id
+    else
+      @post.user_id = 0  
+    end
 
     respond_to do |format|
       if @post.save
@@ -92,12 +91,11 @@ class PostsController < ApplicationController
       @post.fakevotes +=1
     end
 
-    @post.save!
     # Render javascript to change vote text to "Vote pris en compte"
-    # respond_to do |format|
-    #   @post.save
-    #   format.js { render 'vote' }
-    # end
+    respond_to do |format|
+      @post.save
+      format.js { render 'vote' }
+    end
   end
 
   def moderate
@@ -121,10 +119,4 @@ class PostsController < ApplicationController
 
   private
 
-  # Check if the post owner and the current user are identical
-  def check_post_user
-    # unless current_user.id == @post.user_id
-      # redirect_to post_path(Post.find(params[:id]), error: "Impossible d'éditer l'info d'un autre utilisateur" 
-    # end
-  end
 end
