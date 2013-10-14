@@ -1,8 +1,8 @@
 Lesxviezvous::Application.routes.draw do
+
   resources :posts do
     get 'vote'
   end
-
 
   resources :categories do
     resource :posts
@@ -10,7 +10,11 @@ Lesxviezvous::Application.routes.draw do
 
   get 'moderation', to: 'posts#moderate'
 
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
+  # Authentication routes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,6 +10,11 @@ gem 'sqlite3'
 # Using mysql as main database for dev and prod
 gem 'mysql2'
 
+# Using omniauth for authentication
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-twitter'
+gem 'omniauth-google'
 
 # Gems used only for assets and not required
 # in production environments by default.
