@@ -21,6 +21,7 @@ Lesxviezvous::Application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
+
   # Authentication routes
 
   # The priority is based upon order of creation:
@@ -36,7 +37,6 @@ Lesxviezvous::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
   # Sample resource route with options:
   #   resources :products do
   #     member do
