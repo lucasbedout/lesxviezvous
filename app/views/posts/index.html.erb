@@ -21,8 +21,12 @@
     <td><%= post.upvotes %></td>
     <td><%= post.downvotes %></td>
     <td><%= post.fakevotes %></td>
-    <td><%= post.user_id %></td>
-    <td><%= post.category_id %></td>
+    <% if post.user_id != 0 %>
+        <td><% if User.find_by_uid(post.user_id).blank? %><%= User.find(post.user_id).name %><% else %><%= User.find_by_uid(post.user_id).name %><% end %></td>
+    <% else %>
+        <td>Anonyme</td>
+    <% end %>
+    <td><%= Category.find(post.category_id).name %></td>
     <td><%= post.status %></td>
     <td><%= post.source %></td>
     <td><%= link_to 'Show', post %></td>

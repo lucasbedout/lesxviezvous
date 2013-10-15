@@ -83,23 +83,39 @@ class PostsController < ApplicationController
   def vote
     @post = Post.find(params[:post_id])
 
-    if params[:vote] == '0'
+    case params[:vote]
+    when '0'
       @post.downvotes += 1
-    elsif params[:vote] == '1'
+    when '1'
       @post.upvotes += 1
     else
-      @post.fakevotes +=1
+      @post.fakevotes += 1
     end
-
-    # Render javascript to change vote text to "Vote pris en compte"
-    respond_to do |format|
-      @post.save
-      format.js { render 'vote' }
+    @post.save!
+    unless @post.status != 0
+      if @post.upvotes > 100 && (@post.downvotes * 100 /  @post.upvotes) < 30
+        @post.status = 1 
+        respond_to do |format|
+          @post.save!
+          format.js { render 'moderate' }
+        end
+      elsif @post.upvotes > 100 && (@post.downvotes * 100 / @post.fakevotes) < 30
+        @post.status = 1 
+        respond_to do |format|
+          @post.save!
+          format.js { render 'moderate' }
+        end
+      end
+    else
+      # Render javascript to change vote text to "Vote pris en compte"
+      respond_to do |format|
+        format.js { render 'vote' }
+      end
     end
   end
 
   def moderate
-    @post = Post.all.sample
+    @post = Post.where(status: '0').sample
   end
 
   # DELETE /posts/1
