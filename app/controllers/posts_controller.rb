@@ -6,7 +6,16 @@ class PostsController < ApplicationController
     @posts = Post.where(status: '2').all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
+      format.json { render json: @posts }
+    end
+  end
+
+  def index_fakes
+    @posts = Post.where(status: '3').all
+
+    respond_to do |format|
+      format.html { render "index" }
       format.json { render json: @posts }
     end
   end

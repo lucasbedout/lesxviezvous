@@ -15,6 +15,7 @@ Lesxviezvous::Application.routes.draw do
   end
 
   get 'moderation', to: 'posts#moderate'
+  get 'fakes', to: 'posts#index_fakes'
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
