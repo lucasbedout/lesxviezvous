@@ -1,0 +1,9 @@
+<div>
+	<p><%= link_to post.content, admin_post_path(post) %></p>
+	<%= link_to 'Valider', post_validate_path(post, :validate => 1), :remote => true %>
+	<%= link_to 'Rejeter', post_validate_path(post, :validate => 0), :remote => true %>
+</div>
+
+
+
+

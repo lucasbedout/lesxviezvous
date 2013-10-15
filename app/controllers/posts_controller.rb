@@ -118,6 +118,22 @@ class PostsController < ApplicationController
     @post = Post.where(status: '0').sample
   end
 
+  def validate
+    @post = Post.find(params[:post_id])
+
+    if params[:validate] == '1'
+      @post.status = 2
+    else 
+      @post.status = 3
+    end
+    # Render javascript to change vote text to "Vote pris en compte"
+      respond_to do |format|
+        @post.save!
+        format.js { render 'validate' }
+      end 
+
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy

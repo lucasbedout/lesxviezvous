@@ -23,10 +23,14 @@
 
 <p>
   <b>User:</b>
-  <% if User.find_by_uid(@post.user_id).blank? %>
-    <%= User.find(@post.user_id).name %>
+   <% if @post.user_id != 0 %>
+    <% if User.find_by_uid(@post.user_id).blank? %>
+      <%= User.find(@post.user_id).name %>
+    <% else %>
+      <%= User.find_by_uid(@post.user_id).name %>
+    <% end %>
   <% else %>
-    <%= User.find_by_uid(@post.user_id).name %>
+        Anonyme
   <% end %>
 </p>
 
