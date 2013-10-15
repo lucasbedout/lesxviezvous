@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
 
+  # Posts status : 0 => moderation, 1 => ok, to validate, 2 => fake, to validate, 3 => posted, 4 => fake posted
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(status: '2').all
+    @posts = Post.where(status: '3').all
 
     respond_to do |format|
       format.html 
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def index_fakes
-    @posts = Post.where(status: '3').all
+    @posts = Post.where(status: '4').all
 
     respond_to do |format|
       format.html { render "index" }
@@ -109,7 +110,7 @@ class PostsController < ApplicationController
           format.js { render 'moderate' }
         end
       elsif @post.upvotes > 100 && (@post.downvotes * 100 / @post.fakevotes) < 30
-        @post.status = 1 
+        @post.status = 2
         respond_to do |format|
           @post.save!
           format.js { render 'moderate' }
@@ -130,10 +131,12 @@ class PostsController < ApplicationController
   def validate
     @post = Post.find(params[:post_id])
 
-    if params[:validate] == '1'
-      @post.status = 2
-    else 
+    if params[:validate] == '1' and @post.status == 1
       @post.status = 3
+    elsif params[:validate] == '1' and @post.status == 2
+      @post.status = 4
+    else
+      # @post.destroy
     end
     # Render javascript to change vote text to "Vote pris en compte"
       respond_to do |format|

@@ -10,7 +10,7 @@ ActiveAdmin.register_page "Dashboard" do
         column do
          panel "Posts to validate" do
            div do
-             Post.where(status: '1').map do |post|
+             Post.where("status = 1 OR status = 2").map do |post|
                render "validate", :post => post
              end
            end
