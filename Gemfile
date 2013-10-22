@@ -34,6 +34,10 @@ end
 
 gem 'jquery-rails', '~> 2.3.0'
 
+# Using bootstrap for design
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
+
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
