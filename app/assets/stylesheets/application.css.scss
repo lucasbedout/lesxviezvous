@@ -1,8 +1,10 @@
-// overriding vars 
+// overriding/declaring vars 
 
-
+$site-blue: rgb(41, 128, 177);
+$asphalt: rgb(44, 62, 80);
 
 // imports
 
 @import "twitter/bootstrap";
+@import "layout/navbar";
 

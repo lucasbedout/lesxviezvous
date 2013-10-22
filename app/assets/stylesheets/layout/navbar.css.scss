@@ -1,0 +1,19 @@
+.navbar-blue {
+	background-color: $site-blue;
+	
+	.nav-center {
+		li {
+			a {
+				color: white;
+			}			
+		}
+		.title {
+			font-family: "Lucida Handwriting"
+		}
+	}
+
+}
+
+.navbar {
+	border-radius: 0 0 0 0;
+}
