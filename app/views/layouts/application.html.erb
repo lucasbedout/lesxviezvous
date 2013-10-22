@@ -7,13 +7,7 @@
 </head>
 <body>
 
-<div id="user-widget">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <%= stylesheet_link_tag    "layout/application", :media => "all" %>
-  <%= javascript_include_tag "layout/application" %>
-  <%= csrf_meta_tags %>
-</head>
-<div id="user-widget">
+<!--<div id="user-widget">
   <% if current_user %>
     Welcome <strong><%= current_user.name %></strong>!
     <%= link_to "Sign out", signout_path, id: "sign_out" %>
@@ -26,7 +20,31 @@
 	  <%= link_to "login", "/auth/identity" %> with a password.
 	</p>
   <% end %>
-</div>
+</div>-->
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <a class="navbar-brand" href="#">Lesaviezvous ?</a>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">User account</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
 <%= yield %>
 </body>
 </html>

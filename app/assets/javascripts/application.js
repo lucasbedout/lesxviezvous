@@ -1,5 +1,5 @@
 // Include app javascript
-//= require twitter/bootstrap
 //= require jquery
+//= require twitter/bootstrap
 //= require jquery_ujs
 //= require_tree .
