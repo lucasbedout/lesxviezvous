@@ -2,12 +2,29 @@
 <html>
 <head>
   <title>Lesxviezvous</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <%= stylesheet_link_tag    "layout/application", :media => "all" %>
+  <%= javascript_include_tag "layout/application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="user-widget">
+<table id="container_header">
+  <tr>
+    <td id="left_header">
+        <img src="assets/home.png"/>
+    </td>
+    <td id="header">
+        <p class="title_page">Lesxviezvous ?</p>
+    </td>
+    <td id="right_header">
+        <img src="assets/User.png"/>
+    </td>
+  </tr>
+</table>
+<div id="container_ad_midtop">
+  <div class="adds" style="width:768px;height:100%;margin:auto;"></div>
+</div>
+<div id="user-widget" style="display:none;">
   <% if current_user %>
     Welcome <strong><%= current_user.name %></strong>!
     <%= link_to "Sign out", signout_path, id: "sign_out" %>
@@ -19,11 +36,8 @@
 	  <%= link_to "Create an account", "/auth/identity/register" %> or
 	  <%= link_to "login", "/auth/identity" %> with a password.
 	</p>
-
-
   <% end %>
 </div>
 <%= yield %>
-
 </body>
 </html>
