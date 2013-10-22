@@ -4,15 +4,34 @@
 	.navbar-header {
 		margin: auto;
 		float: none;
-		width: 480px;
-
-		li {
-			a {
-				color: white;
-			}			
+		@media screen and (max-width: 768px) {
+			width: 480px;
 		}
-		.title {
-			font-family: "Lucida Handwriting"
+		@media screen and (max-width: 1439px) {
+			width: 768px;
+		}
+
+		@media screen and (min-width: 1440px) {
+			width: 1024px
+		}
+		.nav-center {
+			text-align: center;
+			width: 100%;
+
+			li {
+				float: none;
+				display: inline-block;
+				a {
+					color: white;
+				}			
+			}
+			.title {
+				font-family: "Lucida Handwriting"
+			}
+			
+			.navbar-brand {
+				float: none;
+			}
 		}
 	}
 
