@@ -1,0 +1,31 @@
+<nav class="navbar navbar-blue navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <ul class="nav navbar-nav nav-center">
+      <li class="home"><a href="#"></a></li>
+      <li class="title"><a class="navbar-brand" href="#">Lesaviezvous ?</a></li>
+        <% if current_user %>
+          Welcome <strong><%= current_user.name %></strong>!
+          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <% else %>
+          <li class="user"><a href="#"></a></li>
+          <!--<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+          <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
+        <p>
+          <strong>Don&rsquo;t use these services?</strong>
+          <%= link_to "Create an account", "/auth/identity/register" %> or
+          <%= link_to "login", "/auth/identity" %> with a password.
+        </p>-->
+        <% end %>
+      <!--<li class="dropdown"> 
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </li>-->
+    </ul>
+  </div>
+</nav>
+
