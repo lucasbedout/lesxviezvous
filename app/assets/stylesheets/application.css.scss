@@ -6,5 +6,9 @@ $asphalt: rgb(44, 62, 80);
 // imports
 
 @import "twitter/bootstrap";
+
+// LAYOUT
 @import "layout/navbar";
+@import "layout/left-col";
+@import "layout/center-col";
 

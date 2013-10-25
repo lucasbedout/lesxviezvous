@@ -1,0 +1,16 @@
+.left-col {
+	display: inline-block;
+
+	.left-menu {
+		background-color: $site-blue;
+		height: 400px;
+		float: none;
+		margin-bottom: 30px;
+	}
+
+	.left-ranking {
+		background-color: $site-blue;
+		height: 350px;
+		float: none;
+	}
+}
