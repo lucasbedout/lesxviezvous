@@ -36,10 +36,27 @@
 
 			.home {
 				float: left;
+				margin-top: 9px;
+				a {
+					width: 32px;
+					height: 32px;
+					display: inline-block;
+					background-image: image-url("home.png");
+					background-size: 100%;
+
+				}
 			}
 
 			.user {
 				float: right;
+				margin-top: 9px;
+				a {
+					width: 32px;
+					height: 32px;
+					display: inline-block;
+					background-image: image-url("User.png");
+					background-size: 100%;
+				}
 			}
 
 			.dropdown {
