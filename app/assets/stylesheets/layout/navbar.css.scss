@@ -1,6 +1,6 @@
 .navbar-blue {
 	background-color: $site-blue;
-	
+
 	.navbar-header {
 		margin: auto;
 		float: none;
@@ -8,7 +8,7 @@
 			width: 480px;
 		}
 
-		@media screen and (max-width: 1439px) {
+		@media screen and (max-width: 1439px) and (min-width: 768px) {
 			width: 768px;
 		}
 
@@ -60,6 +60,7 @@
 			}
 
 			.dropdown {
+				float: right;
 				.navbar-toggle {
 					float: none;
 				}
