@@ -77,12 +77,16 @@
 
 // Phones
 @media screen and (max-width: 768px) {
-	.side-bar {
-		display: none;
+
+	.center-content {
+		width: 100%;
+		.side-bar {
+			display: none;
+		}
 	}
 
 	.center-col {
-		width: 650px;
+		width: 100%
 	}
 }
 

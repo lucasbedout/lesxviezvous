@@ -3,6 +3,8 @@
 $site-blue: rgb(41, 128, 177);
 $asphalt: rgb(44, 62, 80);
 
+// mixins 
+
 // imports
 
 @import "twitter/bootstrap";
@@ -10,6 +12,7 @@ $asphalt: rgb(44, 62, 80);
 
 
 // LAYOUT
+@import "layout/general-properties";
 @import "layout/navbar";
 @import "layout/left-col";
 @import "layout/center-col";

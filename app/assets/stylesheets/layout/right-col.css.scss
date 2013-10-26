@@ -5,4 +5,5 @@
 	height: 400px;
 	float: none;
 	margin-bottom: 30px;
+	@include box-shadow(#000000 0 0 8px);
 }

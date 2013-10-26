@@ -1,5 +1,8 @@
 .navbar-blue {
 	background-color: $site-blue;
+	max-height: 50px;
+	border: none;
+	@include box-shadow(#000000 0 0 8px);
 
 	.navbar-header {
 		margin: auto;
@@ -14,7 +17,7 @@
 				display: inline-block;
 				a {
 					color: white;
-				}			
+				}		
 			}
 			.title {
 				font-family: "Lucida Handwriting";
@@ -35,6 +38,10 @@
 					background-size: 100%;
 
 				}
+
+				a:hover {
+					background-color: transparent;
+				}
 			}
 
 			.user {
@@ -46,6 +53,10 @@
 					display: inline-block;
 					background-image: image-url("User.png");
 					background-size: 100%;
+				}
+
+				a:hover {
+					background-color: transparent;
 				}
 			}
 
