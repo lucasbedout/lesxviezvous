@@ -110,7 +110,10 @@
 
 	.left-col {
 		float: left;
-		display: inline-block;
+		@media screen and (min-width: 992px) {
+			display: inline-block;
+		}
+		
 	}
 }
 

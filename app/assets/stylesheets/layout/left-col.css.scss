@@ -3,9 +3,96 @@
 .left-menu {
 	background-color: $site-blue;
 	height: 400px;
+	padding: 10px;
 	float: none;
 	margin-bottom: 30px;
 	@include box-shadow(#000000 0 0 8px);
+
+	.categories {
+		height: 100px;
+		a {
+			background-color: $content-blue;
+			display: inline-block;
+			text-transform: uppercase;
+			color: white;
+			width: 90px;
+			height: 22px;
+			margin: 5px;
+			padding-top: 1px;
+		}
+
+		a:hover, a:focus {
+			text-decoration: none;
+			outline: none;
+			background-color: $asphalt;
+		}
+
+		a:active {
+			outline: none;
+		}
+	}
+
+	.menu {
+		height: 240px;
+		margin-top: 30px;
+
+		.menu-link {
+			margin-top: 4px;
+			height: 110px;
+			width: 110px;
+			display: inline-block;
+			background-color: $content-blue;
+			background-size: 50%;
+			background-position: 28px 11%;
+			background-repeat: no-repeat;
+			padding-top: 70px;
+
+			a {
+				text-transform: uppercase;
+				margin-top: 30px;
+			}
+
+			a:hover {
+				text-decoration: none;
+			}
+		}
+
+		.menu-link:hover {
+			background-color: $asphalt;
+			cursor: pointer;
+		}
+
+		// Menu items for square
+
+		.tops {
+			background-image: image-url("top.png");
+			a {
+				color: $green-sea;
+			}
+		}
+
+		.flops {
+			background-image: image-url("flop.png");
+			a {
+				color: $pomegranate;
+			}
+		}
+
+		.moderation {
+			background-image: image-url("moderate.png");
+			a {
+				color: rgb(243, 181, 0);
+			}
+		}
+
+		.random {
+			background-image: image-url("random.png");
+			a {
+				color: rgb(230, 119, 34);
+			}
+		}
+
+	}
 }
 
 .left-ranking {

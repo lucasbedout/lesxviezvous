@@ -1,6 +1,18 @@
 <div class="side-bar left-col hidden-sd">
 		<div class="left-menu">
+			<div class="categories">
+				<% Category.all.each do |category| %>
+					<%= link_to category.name, category_path(category), :class => 'category-link' %>
+				<% end %>	
+			</div>
+			<div class="menu">
+				<div class="menu-link tops"><a href="#">tops</a></div>
+				<div class="menu-link flops"><a href="#">flops</a></div>
+				<div class="menu-link moderation"><a href="#">modération</a></div>
+				<div class="menu-link random"><a href="#">au hasard</a></div>
+			</div>
 		</div>
+
 		<div class="left-ranking">
 		</div>
 </div>
