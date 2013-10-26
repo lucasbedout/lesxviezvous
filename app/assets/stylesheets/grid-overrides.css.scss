@@ -1,0 +1,113 @@
+// Grids with media-queries, 6 designs for 6 widths
+
+// full HD
+@media screen and (min-width: 1800px)  {
+
+	.center-content {
+		width: 1750px;
+		.side-bar {
+			width: 336px;
+		}
+	}
+
+	.center-col {
+		width: 1024px;
+	}
+}
+
+// Retina and more
+@media screen and (min-width: 1540px) and (max-width: 1800px) {
+	.center-content {
+		width: 1526px;
+		.side-bar {
+			width: 336px;
+		}
+	}
+	
+	.center-col {
+		width: 800px;
+	}
+}
+
+// Desk and laptops screens
+@media screen and (min-width: 1200px) and (max-width: 1540px) {
+	.center-content {
+		width: 1190px;
+		.side-bar {
+			width: 336px;
+		}
+	}
+
+	.center-col {
+		width: 800px;
+	}
+}
+
+// Tablets and netbooks
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+	.center-content {
+		width: 980px;
+		.side-bar {
+			width: 336px;
+		}
+	}
+
+	.center-col {
+		width: 600px;
+	}
+}
+
+// Smartphones, phablets and more
+@media screen and (min-width: 768px) and (max-width: 992px) {
+	.center-content {
+		width: 750px;
+		.side-bar {
+			display: none;
+		}
+	}
+
+	.center-col {
+		width: 100%;
+	}
+
+	.navbar-header {
+		width: 750px;
+	}
+}
+
+// Phones
+@media screen and (max-width: 768px) {
+	.side-bar {
+		display: none;
+	}
+
+	.center-col {
+		width: 650px;
+	}
+}
+
+
+// position, display properties
+
+.center-content {
+	margin: auto;
+	text-align: center;
+
+	.right-col {
+		float:right;
+		@media screen and (min-width: 1540px) {
+			display: inline-block;
+		}
+		
+		@media screen and (max-width: 1540px) {
+			display: none;
+		}
+	}
+
+	.left-col {
+		float: left;
+		display: inline-block;
+	}
+}
+
+

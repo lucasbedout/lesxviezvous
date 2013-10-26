@@ -22,11 +22,14 @@
   <% end %>
 </div>-->
 <%= render "layouts/nav" %>
-<%= render "layouts/left" %>
-<div class="center-col col-md-7 col-lg-8 .col-sm-8 .col-xs-8">
-  <%= yield %>
+
+<div class="center-content">
+  <%= render "layouts/left" %>
+  <div class="center-col content">
+    <%= yield %>
+  </div>
+  <%= render "layouts/right" %>
 </div>
-<%= render "layouts/right" %>
 
 </body>
 </html>

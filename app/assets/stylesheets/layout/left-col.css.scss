@@ -1,16 +1,14 @@
-.left-col {
-	display: inline-block;
+// Left sidebar elements
 
-	.left-menu {
-		background-color: $site-blue;
-		height: 400px;
-		float: none;
-		margin-bottom: 30px;
-	}
+.left-menu {
+	background-color: $site-blue;
+	height: 400px;
+	float: none;
+	margin-bottom: 30px;
+}
 
-	.left-ranking {
-		background-color: $site-blue;
-		height: 350px;
-		float: none;
-	}
+.left-ranking {
+	background-color: $site-blue;
+	height: 350px;
+	float: none;
 }

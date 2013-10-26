@@ -6,6 +6,8 @@ $asphalt: rgb(44, 62, 80);
 // imports
 
 @import "twitter/bootstrap";
+@import "grid-overrides";
+
 
 // LAYOUT
 @import "layout/navbar";
