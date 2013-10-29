@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(status: '3').all
+    @posts = Post.where(status: '3').order('created_at DESC').all;
 
     respond_to do |format|
       format.html 

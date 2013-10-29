@@ -3,6 +3,7 @@
 	margin-bottom: 10px;
 	@include box-shadow(#000000 0 0 8px);
 	color: white;
+	min-width: 408px;
 
 	.post-header {
 		min-height: 40px;
@@ -15,9 +16,13 @@
 		.user-text {
 			display: inline-block;
 			float: left;
+			min-width: 150px;
+			max-width: 150px;
 
 			span {
 				display: inline-block;
+				text-align: left;
+
 			}
 
 			.user-name {
@@ -40,11 +45,34 @@
 			margin-left: 20px;
 			width: 100px;
 		}
+
+		.user-actions {
+			float: left;
+
+			a {
+				display: inline-block;
+				height: 40px;
+				width: 40px;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+
+			.mail-user {
+				background-image: image-url('message.png');
+				background-size: 50%
+			}
+
+			.add-user {
+				background-image: image-url('add-user.png');
+				background-size: 50%
+			}
+		}
 	}
 
 	.post-content {
 		padding: 10px 0 10px 0;
 		background-color: $post-blue;
+		font-weight: 300;
 	}
 
 	.post-footer {
@@ -57,6 +85,7 @@
 			span {
 				display: inline-block;
 				margin-top: 5px;
+				margin-left: 10px;
 				width: 100px;
 				height: 30px;
 				line-height: 30px;

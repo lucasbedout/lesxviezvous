@@ -7,6 +7,10 @@
                 <span class="user-title"><%= Post.user(post.user_id).title %></span>
             </div>
             <span class="user-points"><%= Post.user(post.user_id).points %></span>
+            <div class="user-actions">
+                <%= link_to '', '#', :class => 'add-user' %>
+                <%= link_to '', '#', :class => 'mail-user' %>
+            </div>
         </div>
         <div class="post-content">
             <%= post.content %>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
+  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid, :title, :points, :rank, :picture
   has_many :posts
 
   def self.from_omniauth(auth)
