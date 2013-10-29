@@ -7,7 +7,7 @@
 	.navbar-header {
 		margin: auto;
 		float: none;
-		
+
 		.nav-center {
 			text-align: center;
 			width: 100%;
@@ -58,6 +58,22 @@
 				a:hover {
 					background-color: transparent;
 				}
+			}
+
+			.user-connected {
+				float: right;
+				margin-top: 5px;
+				img {
+					width: 40px;
+					height: 40px;
+					display: inline-block;
+				}
+			}
+
+			.navbar-nav {
+				float: right;
+				margin-top: 9px;
+				display: inline-block;
 			}
 
 			.dropdown {

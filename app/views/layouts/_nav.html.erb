@@ -4,11 +4,10 @@
     <ul class="nav nav-center">
       <li class="home"><%= link_to '', root_path %></li>
       <li class="title"><a class="navbar-brand" href="#">Lesaviezvous ?</a></li>
-        <% if current_user %>
-          Welcome <strong><%= current_user.name %></strong>!
-          <%= link_to "Sign out", signout_path, id: "sign_out" %>
-        <% else %>
+        <% unless current_user %>
           <li class="user"><%= link_to '', '/auth/identity/register' %></a></li>
+        <% else %>
+          <li class="user-connected"><img src="<%= current_user.picture %>" />
           <!--<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
           <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
         <p>
@@ -26,6 +25,17 @@
         </button>
       </li>-->
     </ul>
+  </div>
+  <div class="navbar-nav">
+    <% if current_user %>
+      <div class="user-connected"><strong><%= current_user.name %></strong>
+      <%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+    <% else %>
+      <%= link_to "FB", "/auth/facebook", id: "sign_in" %>
+      <%= link_to "TW", "/auth/twitter", id: "sign_in" %>
+      <%= link_to "Create an account", "/auth/identity/register" %> or
+      <%= link_to "login", "/auth/identity" %> with a password.
+    <% end %>
   </div>
 </nav>
 
