@@ -1,0 +1,122 @@
+.post-container {
+	background-color: $site-blue;
+	margin-bottom: 10px;
+	@include box-shadow(#000000 0 0 8px);
+	color: white;
+
+	.post-header {
+		min-height: 40px;
+
+		img {
+			float: left;
+			margin: 2px;
+		}
+
+		.user-text {
+			display: inline-block;
+			float: left;
+
+			span {
+				display: inline-block;
+			}
+
+			.user-name {
+				display: block;
+			}
+
+			.user-title {
+				float: left;
+			}
+		}
+
+		.user-points {
+			float: left;
+			color: $gold;
+			background-image: image-url("trophy.png");
+			background-size: 50%;
+			background-repeat: no-repeat;
+			display: inline-block;
+			line-height: 40px;
+			margin-left: 20px;
+			width: 100px;
+		}
+	}
+
+	.post-content {
+		padding: 10px 0 10px 0;
+		background-color: $post-blue;
+	}
+
+	.post-footer {
+		min-height: 40px;
+
+		.votes {
+			float: left;
+			margin-left: 10px;
+
+			span {
+				display: inline-block;
+				margin-top: 5px;
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				background-size: 20%;
+				background-repeat: no-repeat;
+				background-position: 10% 50%;
+
+				a {
+					color: white;
+					display: inline-block;
+					width: 100px;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+				}
+
+				a:hover, a:active, a:focus {
+					text-decoration: none;
+					outline: none;
+					background-color: rgba(255, 255, 255, 0.1);
+				}
+			}
+
+			.upvotes {
+				background-color: $green-sea;
+				background-image: image-url("up_thumb.png");
+			}
+
+			.downvotes {
+				background-color: $pomegranate;
+				background-image: image-url("down_thumb.png");
+			}
+		}
+
+		.share {
+			float: right;
+			margin-right: 10px;
+
+			a {
+				height: 24px;
+				width: 24px;
+				display: inline-block;
+				margin-top: 8px;
+			}
+
+			.facebook {
+				background-image: image-url("facebook.png");
+			}
+
+			.twitter {
+				background-image: image-url("twitter.png");
+			}
+
+			.google {
+				background-image: image-url("google+.png");
+			}
+
+			.favorite {
+				background-image: image-url("favorite.png");
+			}
+		}
+	}
+}

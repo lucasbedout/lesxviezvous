@@ -5,4 +5,12 @@ class Post < ActiveRecord::Base
   has_many :comments, :as => :commentable
 
   validates_presence_of :category_id, :content
+
+  def self.user(id)
+  	 if User.find_by_uid(id).blank? 
+  	 	User.find(id) 
+  	 else 
+  	 	User.find_by_uid(id)
+  	 end 
+  end
 end

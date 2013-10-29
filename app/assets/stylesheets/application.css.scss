@@ -3,9 +3,11 @@
 $site-blue: rgb(41, 128, 177);
 $asphalt: rgb(44, 62, 80);
 $content-blue: rgb(30, 100, 140);
+$post-blue: rgb(31, 155, 215);
 $nephrytis: rgb(39, 174, 96);
 $green-sea: rgb(56, 200, 132);
 $pomegranate: rgb(222, 52, 60);
+$gold: rgb(243, 181, 0);
 
 // mixins 
 
@@ -24,4 +26,9 @@ $pomegranate: rgb(222, 52, 60);
 
 // POSTS
 @import "posts/form";
+@import "posts/index";
+
+// ADMIN
+@import "active_admin/mixins";
+@import "active_admin/base";
 

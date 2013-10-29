@@ -1,23 +1,30 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Content</th>
-    <th>Upvotes</th>
-    <th>Downvotes</th>
-    <th>Fakevotes</th>
-    <th>User</th>
-    <th>Category</th>
-    <th>Status</th>
-    <th>Source</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.content %></td>
+    <div class="post-container">
+        <div class="post-header">
+            <%= image_tag Post.user(post.user_id).picture %>
+            <div class="user-text">
+                <span class="user-name"><%= Post.user(post.user_id).name %></span>       
+                <span class="user-title"><%= Post.user(post.user_id).title %></span>
+            </div>
+            <span class="user-points"><%= Post.user(post.user_id).points %></span>
+        </div>
+        <div class="post-content">
+            <%= post.content %>
+        </div>
+        <div class="post-footer">
+            <div class="votes">
+                <span class="upvotes"><%= link_to post.upvotes,  post_vote_path(post.id, :vote => 1), remote: true %></span>
+                <span class="downvotes"><%= link_to post.downvotes,  post_vote_path(post.id, :vote => 0), remote: true %></span>
+            </div>
+            <div class="share">
+                <a href="#" class="facebook"></a>
+                <a href="#" class="twitter"></a>
+                <a href="#" class="google"></a>
+                <a href="#" class="favorite"></a>
+            </div>
+        </div>
+  </div>
+   <!-- <td><%= post.content %></td>
     <td><%= post.upvotes %></td>
     <td><%= post.downvotes %></td>
     <td><%= post.fakevotes %></td>
@@ -33,9 +40,10 @@
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-<% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path %>-->
+
+<% end %>
