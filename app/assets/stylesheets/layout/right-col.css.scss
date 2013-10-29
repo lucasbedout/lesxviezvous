@@ -6,4 +6,11 @@
 	float: none;
 	margin-bottom: 30px;
 	@include box-shadow(#000000 0 0 8px);
+
+	.submit-title {
+		text-transform: uppercase;
+		color: white;
+		font-size: 20px;
+		font-weight: 100;
+	}
 }
