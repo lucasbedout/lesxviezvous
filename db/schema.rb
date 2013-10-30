@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131030024227) do
+ActiveRecord::Schema.define(:version => 20131030151029) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -51,17 +51,71 @@ ActiveRecord::Schema.define(:version => 20131030024227) do
     t.string   "picture_large"
   end
 
+  create_table "inkwell_blog_items", :force => true do |t|
+    t.integer  "item_id"
+    t.boolean  "is_reblog"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "owner_id"
+    t.string   "item_type"
+    t.string   "owner_type"
+  end
+
+  create_table "inkwell_comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "parent_comment_id"
+    t.integer  "topmost_obj_id"
+    t.text     "upper_comments_tree"
+    t.text     "users_ids_who_favorite_it"
+    t.text     "users_ids_who_comment_it"
+    t.text     "users_ids_who_reblog_it"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "topmost_obj_type"
+  end
+
+  create_table "inkwell_favorite_items", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "owner_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "item_type"
+    t.string   "owner_type"
+  end
+
+  create_table "inkwell_followings", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "inkwell_timeline_items", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "owner_id"
+    t.text     "from_source"
+    t.boolean  "has_many_sources", :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "item_type"
+    t.string   "owner_type"
+  end
+
   create_table "posts", :force => true do |t|
     t.text     "content"
-    t.integer  "upvotes",     :default => 0
-    t.integer  "downvotes",   :default => 0
-    t.integer  "fakevotes",   :default => 0
+    t.integer  "upvotes",                   :default => 0
+    t.integer  "downvotes",                 :default => 0
+    t.integer  "fakevotes",                 :default => 0
     t.integer  "user_id"
     t.integer  "category_id"
-    t.integer  "status",      :default => 0
+    t.integer  "status",                    :default => 0
     t.string   "source"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.text     "users_ids_who_favorite_it"
+    t.text     "users_ids_who_comment_it"
+    t.text     "users_ids_who_reblog_it"
   end
 
   create_table "users", :force => true do |t|
@@ -77,6 +131,8 @@ ActiveRecord::Schema.define(:version => 20131030024227) do
     t.datetime "updated_at",                             :null => false
     t.string   "picture"
     t.string   "picture_large"
+    t.integer  "follower_count",   :default => 0
+    t.integer  "following_count",  :default => 0
   end
 
 end

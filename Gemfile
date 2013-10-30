@@ -17,6 +17,9 @@ gem 'omniauth-twitter', '1.0.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-identity'
 
+# Using inkwell for social features
+gem 'inkwell'
+
 # Using active-admin framework for administration
 gem 'activeadmin'
 

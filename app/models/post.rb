@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_many :comments, :as => :commentable
-
+  acts_as_inkwell_post
   validates_presence_of :category_id, :content
 
   def self.user(id)
