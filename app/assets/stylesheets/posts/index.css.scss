@@ -18,6 +18,7 @@
 			float: left;
 			min-width: 150px;
 			max-width: 150px;
+			margin-left: 10px;
 
 			span {
 				display: inline-block;
@@ -82,32 +83,25 @@
 			float: left;
 			margin-left: 10px;
 
-			span {
+			a {
 				display: inline-block;
 				margin-top: 5px;
 				margin-left: 10px;
+				padding-left: 30px;
 				width: 100px;
 				height: 30px;
-				line-height: 30px;
+				line-height: 15px;
 				background-size: 20%;
 				background-repeat: no-repeat;
 				background-position: 10% 50%;
-
-				a {
-					color: white;
-					display: inline-block;
-					width: 100px;
-					height: 30px;
-					line-height: 30px;
-					text-align: center;
-				}
-
-				a:hover, a:active, a:focus {
-					text-decoration: none;
-					outline: none;
-					background-color: rgba(255, 255, 255, 0.1);
-				}
+				color: white;
+				text-align: center;
 			}
+
+			a:hover, a:active, a:focus {
+				outline: none;
+			}
+	
 
 			.upvotes {
 				background-color: $green-sea;
@@ -129,6 +123,7 @@
 				width: 24px;
 				display: inline-block;
 				margin-top: 8px;
+				margin-left: 5px;
 			}
 
 			.facebook {

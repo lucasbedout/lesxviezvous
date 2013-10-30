@@ -17,8 +17,8 @@
         </div>
         <div class="post-footer">
             <div class="votes">
-                <span class="upvotes"><%= link_to post.upvotes,  post_vote_path(post.id, :vote => 1), remote: true %></span>
-                <span class="downvotes"><%= link_to post.downvotes,  post_vote_path(post.id, :vote => 0), remote: true %></span>
+                <%= link_to post.upvotes,  post_vote_path(post.id, :vote => 1), {remote: true, class: 'upvotes btn' } %>
+                <%= link_to post.downvotes,  post_vote_path(post.id, :vote => 0), {remote: true, class: 'downvotes btn' } %>
             </div>
             <div class="share">
                 <a href="#" class="facebook"></a>
