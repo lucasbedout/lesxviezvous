@@ -12,9 +12,11 @@
                 <%= link_to '', '#', :class => 'mail-user' %>
             </div>
         </div>
-        <div class="post-content">
-            <%= post.content %>
-        </div>
+        <%= link_to post_path(post), :class => 'post-link' do %>
+            <div class="post-content">
+                <%= post.content %>
+            </div>
+        <% end %>
         <div class="post-footer">
             <div class="votes">
                 <%= link_to post.upvotes,  post_vote_path(post.id, :vote => 1), {remote: true, class: 'upvotes btn' } %>

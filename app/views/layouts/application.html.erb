@@ -22,10 +22,19 @@
   <% end %>
 </div>-->
 <%= render "layouts/nav" %>
-
 <div class="center-content">
   <%= render "layouts/left" %>
   <div class="center-col content">
+    <% if flash[:error] %>
+      <p class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= flash[:error] %></p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= flash[:notice] %></p>
+    <% end %>
     <%= yield %>
   </div>
   <%= render "layouts/right" %>

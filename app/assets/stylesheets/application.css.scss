@@ -11,6 +11,13 @@ $gold: rgb(243, 181, 0);
 
 // mixins 
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
 // imports
 
 @import "twitter/bootstrap";
@@ -31,7 +38,7 @@ $gold: rgb(243, 181, 0);
 // POSTS
 @import "posts/form";
 @import "posts/index";
-
+@import "posts/post";
 // ADMIN
 @import "active_admin/mixins";
 @import "active_admin/base";

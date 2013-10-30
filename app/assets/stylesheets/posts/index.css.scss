@@ -46,101 +46,24 @@
 			margin-left: 20px;
 			width: 100px;
 		}
+	}
 
-		.user-actions {
-			float: left;
-
-			a {
-				display: inline-block;
-				height: 40px;
-				width: 40px;
-				background-repeat: no-repeat;
-				background-position: 50% 50%;
-			}
-
-			.mail-user {
-				background-image: image-url('message.png');
-				background-size: 50%
-			}
-
-			.add-user {
-				background-image: image-url('add-user.png');
-				background-size: 50%
-			}
+	.post-link {
+		color: white;
+		.post-content {
+			padding: 10px 0 10px 0;
+			background-color: $post-blue;
+			font-weight: 300;
 		}
 	}
 
-	.post-content {
-		padding: 10px 0 10px 0;
-		background-color: $post-blue;
-		font-weight: 300;
+	.post-link:hover, .post-link:focus {
+		text-decoration: none;
+		outline: none;
 	}
 
 	.post-footer {
 		min-height: 40px;
 
-		.votes {
-			float: left;
-			margin-left: 10px;
-
-			a {
-				display: inline-block;
-				margin-top: 5px;
-				margin-left: 10px;
-				padding-left: 30px;
-				width: 100px;
-				height: 30px;
-				line-height: 15px;
-				background-size: 20%;
-				background-repeat: no-repeat;
-				background-position: 10% 50%;
-				color: white;
-				text-align: center;
-			}
-
-			a:hover, a:active, a:focus {
-				outline: none;
-			}
-	
-
-			.upvotes {
-				background-color: $green-sea;
-				background-image: image-url("up_thumb.png");
-			}
-
-			.downvotes {
-				background-color: $pomegranate;
-				background-image: image-url("down_thumb.png");
-			}
-		}
-
-		.share {
-			float: right;
-			margin-right: 10px;
-
-			a {
-				height: 24px;
-				width: 24px;
-				display: inline-block;
-				margin-top: 8px;
-				margin-left: 5px;
-			}
-
-			.facebook {
-				background-image: image-url("facebook.png");
-			}
-
-			.twitter {
-				background-image: image-url("twitter.png");
-			}
-
-			.google {
-				background-image: image-url("google+.png");
-			}
-
-			.favorite {
-				background-image: image-url("favorite.png");
-			}
-		}
 	}
 }

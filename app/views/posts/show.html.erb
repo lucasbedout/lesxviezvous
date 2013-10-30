@@ -1,59 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="post-user">
+  <div class="user-picture" style='background-image: url(<%= Post.user(@post.user_id).picture_large %>);'></div> 
+  <span class="post-username"><%= Post.user(@post.user_id).name %></span>
+  <div class="user-actions">
+      <%= link_to '', '#', :class => 'add-user' %>
+      <%= link_to '', '#', :class => 'mail-user' %>
+      <span class="user-points"><%= Post.user(@post.user_id).points %></span>
+  </div>
 
+</div>
 
-<p>
-  <b>Content:</b>
+<div class="show-post-content">
   <%= @post.content %>
-</p>
-
-<p>
-  <b>Upvotes:</b>
-  <%= @post.upvotes %>
-</p>
-
-<p>
-  <b>Downvotes:</b>
-  <%= @post.downvotes %>
-</p>
-
-<p>
-  <b>Fakevotes:</b>
-  <%= @post.fakevotes %>
-</p>
-
-<p>
-  <b>User:</b>
-   <% if @post.user_id != 0 %>
-    <% if User.find_by_uid(@post.user_id).blank? %>
-      <%= User.find(@post.user_id).name %>
-    <% else %>
-      <%= User.find_by_uid(@post.user_id).name %>
-    <% end %>
-  <% else %>
-        Anonyme
-  <% end %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @post.category_id %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @post.status %>
-</p>
-
-<p>
-  <b>Source:</b>
-  <%= @post.source %>
-</p>
-
-<%= link_to "Downvote",  post_vote_path(@post.id, :vote => 0), remote: true %>
-<%= link_to "Upvote",  post_vote_path(@post.id, :vote => 1), remote: true %>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</div>
+<div class="post-social">
+  <div class="votes">
+    <%= link_to @post.upvotes,  post_vote_path(@post.id, :vote => 1), {remote: true, class: 'upvotes btn' } %>
+    <%= link_to @post.downvotes,  post_vote_path(@post.id, :vote => 0), {remote: true, class: 'downvotes btn' } %>
+  </div>
+  <div class="share">
+    <a href="#" class="facebook"></a>
+    <a href="#" class="twitter"></a>
+    <a href="#" class="google"></a>
+    <a href="#" class="favorite"></a>
+  </div>
+</div>
 
 <div id="disqus_thread"></div>
     <script type="text/javascript">

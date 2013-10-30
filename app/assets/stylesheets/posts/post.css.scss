@@ -1,0 +1,144 @@
+// global footer style
+
+.votes {
+	float: left;
+	margin-left: 10px;
+
+	a {
+		display: inline-block;
+		margin-top: 5px;
+		margin-left: 10px;
+		padding-left: 30px;
+		width: 100px;
+		height: 30px;
+		line-height: 15px;
+		background-size: 20%;
+		background-repeat: no-repeat;
+		background-position: 10% 50%;
+		color: white;
+		text-align: center;
+	}
+
+	a:hover, a:active, a:focus {
+		outline: none;
+		color: white;
+		text-decoration: none;
+	}
+
+
+	.upvotes {
+		background-color: $green-sea;
+		background-image: image-url("up_thumb.png");
+	}
+
+	.downvotes {
+		background-color: $pomegranate;
+		background-image: image-url("down_thumb.png");
+	}
+}
+
+.share {
+	float: right;
+	margin-right: 10px;
+
+	a {
+		height: 24px;
+		width: 24px;
+		display: inline-block;
+		margin-top: 8px;
+		margin-left: 5px;
+	}
+
+	.facebook {
+		background-image: image-url("facebook.png");
+	}
+
+	.twitter {
+		background-image: image-url("twitter.png");
+	}
+
+	.google {
+		background-image: image-url("google+.png");
+	}
+
+	.favorite {
+		background-image: image-url("favorite.png");
+	}
+}
+
+// show post page style
+
+.user-picture {
+		@include border-radius(70px);
+		@include box-shadow(#000000 0 0 8px);
+		background-size: 100%;
+		width: 145px;
+		height: 145px;
+		margin: auto;
+		margin-bottom: 5px;
+		display: inline-block;
+}
+
+.user-actions {
+		display: inline-block;
+	a {
+		display: inline-block;
+		height: 40px;
+		width: 40px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+	}
+
+	.mail-user {
+		background-image: image-url('message.png');
+		background-size: 50%
+	}
+
+	.add-user {
+		background-image: image-url('add-user.png');
+		background-size: 50%
+	}
+}
+
+.post-username {
+	color: white;
+	font-weight: 300;
+	font-size: 20px;
+	display: block;
+}
+
+.user-points {
+	color: $gold;
+	background-image: image-url("trophy.png");
+	background-size: 50%;
+	background-repeat: no-repeat;
+	display: inline-block;
+	float: left;
+	line-height: 40px;
+	padding-left: 30px;
+	margin: auto;
+	width: 100px;
+}
+
+.show-post-content {
+	background-color: $site-blue;
+	@include box-shadow(#000000 0 0 8px);
+	padding: 10px;
+	margin: 10px 0 10px 0;
+	color: white;
+}
+
+.post-social {
+	display: block;
+	height: 40px;
+}
+
+.post-source {
+	color: white;
+	margin-top: 10px;
+	float: left;
+}
+
+#disqus_thread {
+	margin-top: 50px;
+}

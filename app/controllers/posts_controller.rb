@@ -25,10 +25,13 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
+    if @post.status != 3
+      redirect_to root_path, :flash => { :error => "Le post n'existe pas ou n'est pas encore valide"}
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @post }
+      end
     end
   end
 
