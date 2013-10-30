@@ -2,7 +2,7 @@
 
 .votes {
 	float: left;
-	margin-left: 10px;
+	margin-left: 5px;
 
 	a {
 		display: inline-block;
@@ -37,6 +37,40 @@
 	}
 }
 
+.blogging {
+	float: left;
+	margin-left: 30px;
+
+	a {
+		height: 24px;
+		width: 24px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		margin-top: 8px;
+		margin-left: 5px;
+	}
+
+	.favorite {
+		background-image: image-url("favorite.png");
+		background-size: 75%;
+		background-position: 50% 50%;
+	}
+
+	.unfavorite {
+		background-image: image-url("unfavorite.png");
+		background-size: 75%;
+		background-position: 50% 50%;
+	}
+
+	.reblog {
+		background-image: image-url("share.png");
+	}
+
+	.unreblog {
+		background-image: image-url("unshare.png");
+	}
+}
+
 .share {
 	float: right;
 	margin-right: 10px;
@@ -61,9 +95,6 @@
 		background-image: image-url("google+.png");
 	}
 
-	.favorite {
-		background-image: image-url("favorite.png");
-	}
 }
 
 // show post page style

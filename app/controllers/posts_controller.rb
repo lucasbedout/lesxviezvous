@@ -65,7 +65,9 @@ class PostsController < ApplicationController
     else
       @post.user_id = 0  
     end
-
+    @post.users_ids_who_favorite_it = '[]'
+    @post.users_ids_who_comment_it = '[]'
+    @post.users_ids_who_reblog_it = '[]'
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -147,6 +149,34 @@ class PostsController < ApplicationController
         format.js { render 'validate' }
       end 
 
+  end
+
+  def favorite 
+    @post = Post.find(params[:post_id])
+    if current_user.favorite? @post
+      current_user.unfavorite @post
+    else
+      current_user.favorite @post
+    end
+
+    respond_to do |format|
+      @post.save!
+      format.js { render 'validate' }
+    end 
+  end
+
+  def reblog 
+    @post = Post.find(params[:post_id])
+    if current_user.reblog? @post
+      current_user.unreblog @post
+    else
+      current_user.reblog @post
+    end
+
+    respond_to do |format|
+      @post.save!
+      format.js { render 'validate' }
+    end 
   end
 
   # DELETE /posts/1

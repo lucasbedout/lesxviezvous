@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
       elsif auth["provider"] == "twitter"
         user.picture_large = auth["info"]["image"].sub("_normal", "")
       end
+      user.followings_ids = '[]'
+      user.followers_ids = '[]'
     end
   end
 end

@@ -8,6 +8,8 @@ Lesxviezvous::Application.routes.draw do
   resources :posts do
     get 'vote'
     get 'validate'
+    get 'favorite'
+    get 'reblog'
   end
 
   resources :categories do
