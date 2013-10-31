@@ -16,6 +16,10 @@ Lesxviezvous::Application.routes.draw do
     resource :posts
   end
 
+  resources :users do 
+    get 'follow'
+  end
+
   get 'moderation', to: 'posts#moderate'
   get 'fakes', to: 'posts#index_fakes'
 

@@ -8,7 +8,9 @@
             </div>
             <span class="user-points"><%= Post.user(post.user_id).points %></span>
             <div class="user-actions">
-                <%= link_to '', '#', :class => 'add-user' %>
+                <% if current_user and !current_user.follow? User.find_by_uid(post.user_id) %>
+                    <%= link_to '',  user_follow_path(post.user_id), {remote: true, class: 'add-user' } %>
+                <% end %>
                 <%= link_to '', '#', :class => 'mail-user' %>
             </div>
         </div>

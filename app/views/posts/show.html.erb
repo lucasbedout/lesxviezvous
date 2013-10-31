@@ -1,8 +1,10 @@
 <div class="post-user">
   <div class="user-picture" style='background-image: url(<%= Post.user(@post.user_id).picture_large %>);'></div> 
   <span class="post-username"><%= Post.user(@post.user_id).name %></span>
-  <div class="user-actions">
-      <%= link_to '', '#', :class => 'add-user' %>
+   <div class="user-actions">
+      <% if current_user and !current_user.follow? User.find_by_uid(@post.user_id) %>
+          <%= link_to '',  user_follow_path(@post.user_id), {remote: true, class: 'add-user' } %>
+      <% end %>
       <%= link_to '', '#', :class => 'mail-user' %>
       <span class="user-points"><%= Post.user(@post.user_id).points %></span>
   </div>
