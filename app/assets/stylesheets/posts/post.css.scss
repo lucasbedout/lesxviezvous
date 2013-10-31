@@ -97,6 +97,17 @@
 
 }
 
+.post-header {
+
+	a {
+		color: white;
+	}
+
+	a:hover, a:focus, a:active {
+		text-decoration: none;
+	}
+}
+
 // show post page style
 
 .user-picture {

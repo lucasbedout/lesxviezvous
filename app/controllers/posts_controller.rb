@@ -58,13 +58,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post]) # params : content, category, source
-    if current_user && !current_user.uid.blank?
-      @post.user_id = current_user.uid
-    elsif current_user
-      @post.user_id = current_user.id
-    else
-      @post.user_id = 0  
-    end
+    @post.user_id = current_user.id
     @post.users_ids_who_favorite_it = '[]'
     @post.users_ids_who_comment_it = '[]'
     @post.users_ids_who_reblog_it = '[]'

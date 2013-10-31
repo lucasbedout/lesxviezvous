@@ -1,0 +1,46 @@
+<div class="post-container">
+        <div class="post-header">
+            <%= link_to user_path(User.find_by_uid(post.user_id)) do %> 
+                <%= image_tag Post.user(post.user_id).picture %>
+                <div class="user-text">
+                    <span class="user-name"><%= Post.user(post.user_id).name %></span>       
+                    <span class="user-title"><%= Post.user(post.user_id).title %></span>
+                </div>
+            <% end %>
+            <span class="user-points"><%= Post.user(post.user_id).points %></span>
+            <div class="user-actions">
+                <% if current_user and !current_user.follow? User.find_by_uid(post.user_id) %>
+                    <%= link_to '',  user_follow_path(post.user_id), {remote: true, class: 'add-user' } %>
+                <% end %>
+                <%= link_to '', '#', :class => 'mail-user' %>
+            </div>
+        </div>
+        <%= link_to post_path(post), :class => 'post-link' do %>
+            <div class="post-content">
+                <%= post.content %>
+            </div>
+        <% end %>
+        <div class="post-footer">
+            <div class="votes">
+                <%= link_to post.upvotes,  post_vote_path(post.id, :vote => 1), {remote: true, class: 'upvotes btn' } %>
+                <%= link_to post.downvotes,  post_vote_path(post.id, :vote => 0), {remote: true, class: 'downvotes btn' } %>
+            </div>
+            <div class="blogging">
+                <% if current_user and !current_user.favorite? post %>
+                    <%= link_to '',  post_favorite_path(post.id), {remote: true, class: 'favorite' } %>
+                <% elsif current_user and current_user.favorite? post %>
+                    <%= link_to '',  post_favorite_path(post.id), {remote: true, class: 'unfavorite' } %>
+                <% end %>
+                <% if current_user and !current_user.reblog? post %>
+                    <%= link_to '',  post_reblog_path(post.id), {remote: true, class: 'reblog' } %>
+                <% elsif current_user and current_user.reblog? post %>
+                    <%= link_to '',  post_reblog_path(post.id), {remote: true, class: 'unreblog' } %>
+                <% end %>
+            </div>
+            <div class="share">
+                <a href="#" class="facebook"></a>
+                <a href="#" class="twitter"></a>
+                <a href="#" class="google"></a>
+            </div>
+        </div>
+  </div>
