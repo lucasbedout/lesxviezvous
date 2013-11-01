@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 	end
 
 	def follow
-		@user = User.find_by_uid(params[:user_id])
+		@user = User.find(params[:user_id])
 
 	    if current_user.follow? @user
 	      current_user.unfollow @user

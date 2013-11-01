@@ -1,15 +1,15 @@
 <div class="post-container">
         <div class="post-header">
-            <%= link_to user_path(User.find_by_uid(post.user_id)) do %> 
+            <%= link_to user_path(User.find(post.user_id)) do %> 
                 <%= image_tag Post.user(post.user_id).picture %>
                 <div class="user-text">
-                    <span class="user-name"><%= Post.user(post.user_id).name %></span>       
-                    <span class="user-title"><%= Post.user(post.user_id).title %></span>
+                    <span class="user-name"><%= User.find(post.user_id).name %></span>       
+                    <span class="user-title"><%= User.find(post.user_id).title %></span>
                 </div>
             <% end %>
-            <span class="user-points"><%= Post.user(post.user_id).points %></span>
+            <span class="user-points"><%= User.find(post.user_id).points %></span>
             <div class="user-actions">
-                <% if current_user and !current_user.follow? User.find_by_uid(post.user_id) %>
+                <% if current_user and !current_user.follow? User.find(post.user_id) %>
                     <%= link_to '',  user_follow_path(post.user_id), {remote: true, class: 'add-user' } %>
                 <% end %>
                 <%= link_to '', '#', :class => 'mail-user' %>

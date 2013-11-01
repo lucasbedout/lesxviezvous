@@ -124,7 +124,11 @@ class PostsController < ApplicationController
   end
 
   def moderate
-    @post = Post.where(status: '0').sample
+    if !Post.where(status: '0').all.blank?
+      @post = Post.where(status: '0').sample
+    else
+      redirect_to root_path, :flash => { :error => 'Aucun post a moderer'}
+    end
   end
 
   def validate
