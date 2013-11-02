@@ -119,7 +119,7 @@ class PostsController < ApplicationController
     else
       # Render javascript to change vote text to "Vote pris en compte"
       respond_to do |format|
-        format.js { render 'vote' }
+        format.js 
       end
     end
   end

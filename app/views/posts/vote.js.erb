@@ -1,1 +1,2 @@
-document.location.reload()
+$('.post-<%= @post.id %> .upvotes').html(<%= @post.upvotes %>);
+$('.post-<%= @post.id %> .downvotes').html(<%= @post.downvotes %>);

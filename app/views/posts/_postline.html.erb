@@ -1,4 +1,4 @@
-<div class="post-container">
+<div class="post-container post-<%= post.id %>">
     <div class="post-header">
         <%= link_to user_path(User.find(post.user_id)) do %> 
             <%= image_tag Post.user(post.user_id).picture %>
