@@ -1,2 +1,2 @@
-$('.post-<%= @post.id %> .upvotes').html(<%= @post.upvotes %>);
-$('.post-<%= @post.id %> .downvotes').html(<%= @post.downvotes %>);
+$('.post-<%= @post.id %> .upvotes').html(<%= @post.upvotes %>).addClass('disabled');
+$('.post-<%= @post.id %> .downvotes').html(<%= @post.downvotes %>).addClass('disabled');
