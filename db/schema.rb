@@ -38,6 +38,20 @@ ActiveRecord::Schema.define(:version => 20131030151029) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "communities", :force => true do |t|
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.integer  "owner_id"
+    t.string   "default_user_access", :default => "w"
+    t.boolean  "public",              :default => true
+    t.integer  "user_count",          :default => 1
+    t.integer  "writer_count",        :default => 1
+    t.integer  "admin_count",         :default => 1
+    t.integer  "muted_count",         :default => 0
+    t.integer  "banned_count",        :default => 0
+    t.integer  "invitation_count",    :default => 0
+  end
+
   create_table "identities", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -73,6 +87,20 @@ ActiveRecord::Schema.define(:version => 20131030151029) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.string   "topmost_obj_type"
+  end
+
+  create_table "inkwell_community_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "community_id"
+    t.string   "user_access",      :default => "r"
+    t.boolean  "is_admin",         :default => false
+    t.integer  "admin_level"
+    t.boolean  "muted",            :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "active",           :default => false
+    t.boolean  "banned",           :default => false
+    t.boolean  "asked_invitation", :default => false
   end
 
   create_table "inkwell_favorite_items", :force => true do |t|
@@ -116,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20131030151029) do
     t.text     "users_ids_who_favorite_it"
     t.text     "users_ids_who_comment_it"
     t.text     "users_ids_who_reblog_it"
+    t.text     "communities_ids"
   end
 
   create_table "users", :force => true do |t|
@@ -133,6 +162,7 @@ ActiveRecord::Schema.define(:version => 20131030151029) do
     t.string   "picture_large"
     t.integer  "follower_count",   :default => 0
     t.integer  "following_count",  :default => 0
+    t.integer  "community_count",  :default => 0
   end
 
 end
