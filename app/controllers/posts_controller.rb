@@ -128,7 +128,7 @@ class PostsController < ApplicationController
     if !Post.where(status: '0').all.blank?
       @post = Post.where(status: '0').sample
     else
-      redirect_to root_path, :flash => { :error => 'Aucun post a modérer'}
+      redirect_to root_path, :flash => { :error => 'Aucun post a moderer'}
     end
   end
 

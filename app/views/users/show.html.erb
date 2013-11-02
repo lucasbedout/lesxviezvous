@@ -38,6 +38,10 @@
 	</div>
 
 	<% @blogline.each do |post| %>
-	    <%= render 'posts/postline', :post => post %>
+		<% if @user.reblog? post %>
+			<div class="reblogged-post"><%= render 'posts/postline', {:post => post } %></div>
+		<% else %>
+			<%= render 'posts/postline', {:post => post } %>
+		<% end %>
 	<% end %>
 </div>

@@ -46,6 +46,7 @@
 	.user-infos {
 		height: 150px;
 		width: 100%;
+		margin-bottom: 20px;
 		div {
 			display: inline-block;
 			margin-left: 10px;
@@ -55,6 +56,7 @@
 		.info-title {
 			font-weight: 100;
 			font-size: 18px;
+			font-family: 'Lato';
 
 		}
 
@@ -64,6 +66,22 @@
 
 		.user-numbers {
 			float: right;
+		}
+	}
+
+	.reblogged-post {
+		background-image: url("/assets/retweeted.png");
+	background-repeat: no-repeat;
+	background-position: 98% 0;
+	background-size: 3.5%;
+	}
+
+	.post-container {
+		@include box-shadow(none);
+		background-color: transparent;
+
+		.post-footer {
+			background-color: $post-blue;
 		}
 	}
 }
