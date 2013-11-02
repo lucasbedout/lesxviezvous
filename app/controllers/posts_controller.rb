@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  # encoding: UTF-8
   # Posts status : 0 => moderation, 1 => ok, to validate, 2 => fake, to validate, 3 => posted, 4 => fake posted
   # GET /posts
   # GET /posts.json
@@ -127,7 +128,7 @@ class PostsController < ApplicationController
     if !Post.where(status: '0').all.blank?
       @post = Post.where(status: '0').sample
     else
-      redirect_to root_path, :flash => { :error => 'Aucun post a moderer'}
+      redirect_to root_path, :flash => { :error => 'Aucun post a modérer'}
     end
   end
 
