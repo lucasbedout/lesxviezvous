@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  # encoding: UTF-8
   # Posts status : 0 => moderation, 1 => ok, to validate, 2 => fake, to validate, 3 => posted, 4 => fake posted
   # GET /posts
   # GET /posts.json
