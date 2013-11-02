@@ -39,7 +39,11 @@ $gold: rgb(243, 181, 0);
 @import "posts/form";
 @import "posts/index";
 @import "posts/post";
+
 // ADMIN
 @import "active_admin/mixins";
 @import "active_admin/base";
+
+// USERS
+@import "users/user"
 

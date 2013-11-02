@@ -1,3 +1,43 @@
-<% @blogline.each do |post| %>
-    <%= render 'posts/postline', :post => post %>
-<% end %>
+<div class="user-profile">
+	<div class="profile-header">
+		<div class="profile-picture" style='background-image: url(<%= @user.picture_large %>);'></div> 
+		<div class="user-main">
+			<span class="profile-username"><%= @user.name %></span>
+			<span class="profile-title">Novice</span>
+			<span class="user-points"><%= @user.points %></span>
+			<div class="user-actions">
+		    <% if current_user and !current_user.follow? User.find(@user.id) %>
+		       <%= link_to '',  user_follow_path(@user.id), {remote: true, class: 'add-user' } %>
+		    <% end %>
+		      <%= link_to '', '#', :class => 'mail-user' %>
+		  </div>
+		</div>
+		<div class="user-infos">
+			<div class="user-personal">
+				<h3 class="info-title">Informations personnelles</h3>
+				<div class="info-row-1">
+					<p>Date de naissance</p>
+					<p>Sexe</p>
+					<p>Site web</p>
+				</div>
+				<div class="info-row-2">
+					<p>Hobbies</p>
+					<p>Langues</p>
+					<p>Profession</p>
+				</div>
+			</div>
+			<div class="user-numbers">
+				<h3 class="info-title">Chiffres et récompenses</h3>
+				<div class="info-row-1">
+					<p>5 derniers trophées</p>
+					<p>Classement de la semaine</p>
+					<p>Posts</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<% @blogline.each do |post| %>
+	    <%= render 'posts/postline', :post => post %>
+	<% end %>
+</div>
