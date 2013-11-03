@@ -92,3 +92,120 @@
 .navbar {
 	border-radius: 0 0 0 0;
 }
+
+.modal-dialog {
+	margin-top: 50px;
+
+	.modal-body {
+		background-color: $site-blue;
+		color: white;
+		min-width: 400px;
+
+		.nav-tabs {
+			text-align: center;
+			border-color: $content-blue;
+
+			li {
+				display: inline-block;
+				float: none;
+				a {
+					background-color: $content-blue;
+					color: white;
+					border-radius: none;
+				}
+
+				a:hover, a:focus, a:active {
+					outline: none;
+					background-color: $site-blue;
+					border-color: $content-blue;
+					border-bottom: 1px solid $site-blue;
+				}
+			}
+
+			.active {
+				a {
+					background-color: $site-blue;
+					border-color: $content-blue;
+					border-bottom: 1px solid $site-blue;
+				}
+			}
+		}
+
+		.tab-content {
+
+			h3 {
+				text-align: center;
+				font-family: "Lato";
+				font-weight: 300;
+				margin-bottom: 25px;
+			}
+
+			#connexion{
+
+				.manual-login {
+					width: 50%;
+					display: inline-block;
+					border-right: 1px solid white;
+					text-align: center;
+
+					input[type="text"], input[type="password"] {
+						height: 40px;
+						margin-bottom: 10px;
+						padding-left: 15px;
+						border: medium none;
+						outline: medium none;
+					}
+
+					input[type="submit"] {
+						display: block;
+						margin: auto;
+						margin-top: 15px;
+						background-color: $post-blue;
+					}
+				}
+			}
+
+			#sign_up {
+				text-align: center;
+
+				input[type="text"], input[type="password"] {
+					height: 40px;
+					margin: 10px;
+					padding-left: 15px;
+					border: medium none;
+					outline: medium none;
+				}
+
+				input[type="submit"] {
+					display: block;
+					margin: auto;
+					margin-top: 15px;
+					background-color: $post-blue;
+				}
+			}
+
+			.social-login {
+				width: 50%;
+				float: right;
+				display: inline-block;
+				text-align: center;
+
+				a {
+					margin-top: 20px;
+					width: 48px;
+					height: 48px;
+					display: inline-block;
+				}
+
+				.login-facebook {
+					background-image: image-url('fb-login.png')
+				}
+
+				.login-twitter {
+					background-image: image-url('tw-login.png')
+				}
+
+			}
+		}
+	}
+}
