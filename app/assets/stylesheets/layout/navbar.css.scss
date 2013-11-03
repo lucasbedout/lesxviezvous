@@ -9,41 +9,49 @@
 		float: none;
 		min-width: 408px;
 
-		.nav-center {
-			text-align: center;
-			width: 100%;
+		.nav-left {
+			float: left;
+			display: inline-block;
 
-			li {
-				float: none;
+			.user-icons {
 				display: inline-block;
-				a {
-					color: white;
-				}		
+				float:left;
+				margin-top: 9px;
+
+				span {
+					display: inline-block;
+					height: 32px;
+					width: 32px;
+					line-height: 32px;
+				}
 			}
+
 			.title {
+				display: inline-block;
+				float: left;
 				font-family: "Lucida Handwriting";
 
-				.navbar-brand {
-					float: none;
-				}
-			}
-
-			.home {
-				float: left;
-				margin-top: 9px;
 				a {
-					width: 32px;
-					height: 32px;
-					display: inline-block;
-					background-image: image-url("home.png");
-					background-size: 100%;
-
-				}
-
-				a:hover {
-					background-color: transparent;
+					color: white;
 				}
 			}
+
+		}
+
+		.nav-center {
+			float: left;
+			margin-left: 20px;
+			text-align: center;
+
+			input {
+				width: 300px; 
+				margin-top: 8px;
+			}
+		}
+
+		.nav-right {
+			display: inline-block;
+			float: right;
 
 			.user {
 				float: right;
@@ -71,19 +79,6 @@
 				}
 			}
 
-			.navbar-nav {
-				float: right;
-				margin-top: 9px;
-				display: inline-block;
-			}
-
-			.dropdown {
-				float: right;
-				.navbar-toggle {
-					float: none;
-				}
-			}
-
 		}
 	}
 
@@ -92,6 +87,8 @@
 .navbar {
 	border-radius: 0 0 0 0;
 }
+
+/* LOGIN */
 
 .modal-dialog {
 	margin-top: 50px;
@@ -143,7 +140,7 @@
 			#connexion{
 
 				.manual-login {
-					width: 50%;
+					width: 45%;
 					display: inline-block;
 					border-right: 1px solid white;
 					text-align: center;
@@ -185,7 +182,7 @@
 			}
 
 			.social-login {
-				width: 50%;
+				width: 45%;
 				float: right;
 				display: inline-block;
 				text-align: center;
@@ -204,8 +201,9 @@
 				.login-twitter {
 					background-image: image-url('tw-login.png')
 				}
-
 			}
 		}
 	}
 }
+
+/* Responsive menu */
