@@ -316,4 +316,55 @@
 	}
 }
 
-/* Responsive menu */
+/* Creation modal */
+
+#add {
+
+	#post {
+
+		.modal-fields {
+			width: 540px;
+			margin: auto;
+			padding: 0 20px;
+
+			label {
+				display: block;
+				font-weight: 300;
+			}
+
+			.category {
+				float: left;
+				width: 50%;
+				select {
+					width: 150px;
+				}
+			}
+
+			.content-new {
+
+				textarea {
+					width: 500px;
+					height: 100px;
+				}
+			}
+
+			.source {
+				input {
+					text-align: left;
+				}
+			}
+
+			.actions {
+				width: 200px;
+				margin: auto;
+				margin-top: 20px;
+				text-align: center;
+
+				input {
+					background-color: $post-blue;
+					color: white;
+				}
+			}
+		}
+	}
+}
