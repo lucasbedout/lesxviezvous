@@ -1,20 +1,24 @@
 <nav class="navbar navbar-blue navbar-default navbar-fixed-top" role="navigation">
   <div class="navbar-header center-col">
     <div class="nav nav-left">
-      <div class="user-icons">
-        <span class="messages-icon">MS</span>
-        <span class="notif-icon">NT</span>
-      </div>
       <div class="title"><a class="navbar-brand" href="#">Lesaviezvous ?</a></div>
+      <div class="user-icons">
+        <span class="message-icon"></span>
+        <span class="notif-icon"></span>
+      </div>
     </div>
     <div class="nav-center">
-      <input type="search" class="form-control" placeholder="Rechercher un utilisateur, un groupe" />
+      <input type="search" class="form-control" placeholder="Rechercher un utilisateur, un groupe" /><span class="search-icon"></span>
     </div>
     <div class="nav nav-right">
       <% unless current_user %>
           <div class="user" data-toggle="modal" data-target="#myModal"><%= link_to '', '#' %></a></div>
         <% else %>
-          <div class="user-connected"><img src="<%= current_user.picture %>" />
+          <div class="user-connected">
+            <%= link_to user_path(current_user), :class => 'picture-username' do %>
+              <img src="<%= current_user.picture %>" />
+              <%= current_user.name %>
+            <% end %>
         <% end %>
     </div>
     </div>
