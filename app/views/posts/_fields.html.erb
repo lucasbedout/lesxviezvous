@@ -12,6 +12,9 @@
     <%= f.label 'Contenu' %>
     <%= f.text_area :content %>
   </div>
+  <% if params[:controller] == 'communities' %>
+    <%= hidden_field_tag :community, params[:id] %>
+  <% end %>
   <div class="actions">
     <%= f.submit :class => 'btn'%>
   </div>

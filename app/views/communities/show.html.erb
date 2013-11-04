@@ -1,0 +1,7 @@
+<div class="community-post-form">
+	<%= render 'posts/fields' %>
+</div>
+
+<% @blogline.each do |post| %>
+		<%= render 'posts/postline', {:post => post } %>
+<% end %>

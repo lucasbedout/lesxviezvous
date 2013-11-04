@@ -3,6 +3,11 @@ class CommunitiesController < ApplicationController
 		@communities = Community.all
 	end
 
+	def show
+		@community = Community.find(params[:id])
+		@blogline = @community.blogline(:last_shown_obj_id => nil, :limit => 10, :for_user => nil)
+	end
+
 	def create
 	    @community = Community.create :name => params[:name], :owner_id => current_user.id, :public => params[:privacy]
 	    respond_to do |format|

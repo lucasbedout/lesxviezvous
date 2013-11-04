@@ -5,7 +5,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(status: '3').order('created_at DESC').all;
+    if current_user
+      @posts = current_user.timeline(:last_shown_obj_id => nil, :limit => 10, :for_user => nil)
+    else
+      @posts = Post.where(status: '3').order('created_at DESC').all;
+    end
 
     respond_to do |format|
       format.html 
@@ -59,13 +63,19 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post]) # params : content, category, source
+
     @post.user_id = current_user.id
     @post.users_ids_who_favorite_it = '[]'
     @post.users_ids_who_comment_it = '[]'
     @post.users_ids_who_reblog_it = '[]'
     @post.communities_ids = '[]'
+
     respond_to do |format|
       if @post.save
+        if !params[:community].blank?
+          current_user.send_post_to_community :post => @post, :to_community => Community.find(params[:community])
+          format.html { redirect_to Community.find(params[:community]), notice: 'Post was successfully created.' }
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
