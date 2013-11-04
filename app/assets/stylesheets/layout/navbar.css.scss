@@ -13,18 +13,6 @@
 			display: inline-block;
 			margin-left: 30px; 			
 
-			.title {
-				display: inline-block;
-				float: left;
-				//font-family: "Lucida Handwriting";
-
-				a {
-					padding: 0;
-					color: white;
-					line-height: 40px;
-				}
-			}
-
 			.add-menu {
 				@media screen and (max-width: 992px) {
 						display: none;
@@ -56,10 +44,43 @@
 					@media screen and (min-width: 992px) {
 						display: none;
 					}
+
+					.responsive-menu {
+						background-image: image-url('respo-menu.png');
+						display: inline-block;
+						height: 30px;
+						width: 32px;
+						background-repeat: no-repeat;
+						margin-left: 10px;
+						margin-top: 4px;
+					}
+
+					.responsive-menu:hover, .responsive-menu:focus, .responsive-menu:active {
+						outline: none;
+						text-decoration: none;
+					}
 				}
 
 				.navigation {
 					display: none;
+					background-color: $site-blue;
+
+					div {
+						display: block;
+						a {
+							display: inline-block;
+							padding: 0 10px;
+							width: 100%;
+							line-height: 30px;
+							color: white;
+						}
+
+						a:hover, a:focus, a:active {
+							background-color: rgba(255, 255, 255, 0.2);
+							outline: none;
+							text-decoration: none;
+						}
+					}
 				}
 
 		}
@@ -98,7 +119,6 @@
 			.user {
 				float: right;
 				a {
-					display: inline-block;
 					background-image: image-url("User.png");
 					display: inline-block;
 					height: 32px;

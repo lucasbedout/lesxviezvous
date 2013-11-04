@@ -7,20 +7,6 @@
 </head>
 <body>
 
-<!--<div id="user-widget">
-  <% if current_user %>
-    Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-    <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
-	<p>
-	  <strong>Don&rsquo;t use these services?</strong>
-	  <%= link_to "Create an account", "/auth/identity/register" %> or
-	  <%= link_to "login", "/auth/identity" %> with a password.
-	</p>
-  <% end %>
-</div>-->
 <%= render "layouts/nav" %>
 <div class="center-content">
   <%= render "layouts/left" %>
