@@ -15,4 +15,19 @@ class CommunitiesController < ApplicationController
 	      end
 	    end
 	  end
+
+	  def join 
+	  	@community = Community.find(params[:community_id])
+
+	  	if @community.public == true
+	  		current_user.join @community
+	  	else
+	  		current_user.request_invitation @community
+	  	end
+
+	  	 respond_to do |format|
+	        format.html { redirect_to root_path, notice: 'OK' }
+	        format.json { render json: @community, status: :created, location: @community }
+	    end
+	  end
 end

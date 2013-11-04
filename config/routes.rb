@@ -16,7 +16,9 @@ Lesxviezvous::Application.routes.draw do
     resource :posts
   end
 
-  resources :communities 
+  resources :communities do 
+    get :join
+  end
 
   resources :users do 
     get 'follow'
