@@ -9,39 +9,14 @@
 		float: none;
 		min-width: 500px;
 
-		.nav-left {
-			float: left;
+		.nav-center {
 			display: inline-block;
-
-			.user-icons {
-				display: inline-block;
-				float:left;
-				margin-top: 4px;
-				margin-left: 15px;
-
-				span {
-					display: inline-block;
-					height: 32px;
-					width: 32px;
-					background-position: 50%;
-					background-repeat: no-repeat;
-					background-size: 60%;
-				}
-
-				.notif-icon {
-					background-image: image-url('notif.png');
-				}
-
-				.message-icon {
-					background-image: image-url('nav-mess.png');
-				}
-
-			}
+			margin-left: 30px; 			
 
 			.title {
 				display: inline-block;
 				float: left;
-				font-family: "Lucida Handwriting";
+				//font-family: "Lucida Handwriting";
 
 				a {
 					padding: 0;
@@ -50,40 +25,68 @@
 				}
 			}
 
+			.add-menu {
+				@media screen and (max-width: 992px) {
+						display: none;
+				}
+				display: inline-block;
+
+				div {
+					display: inline-block;
+				}
+
+				a {
+					display: inline-block;
+					line-height: 40px;
+					padding: 0 12px;
+					text-align: center;
+					margin-left: 10px;
+					color: white;
+				}
+
+				a:hover, a:focus, a:active {
+					background-color: rgba(255, 255, 255, 0.1);
+					outline: none;
+					text-decoration: none;
+				}
+
+			}
+
+			.ls-menu {
+					@media screen and (min-width: 992px) {
+						display: none;
+					}
+				}
+
+				.navigation {
+					display: none;
+				}
+
 		}
 
-		.nav-center {
-			float: left;
-			margin-left: 30px;
+		.nav-left {
 			text-align: center;
+			float: left;
 
 			input {
 				@media screen and (max-width: 800px) {
 					width: 150px;
+					padding-right: 65px;
 				}
 				width: 300px; 
 				margin-top: 6px;
-				padding-top: 0 12px;
+				padding: 0 12px;
 				display: inline-block;
 				float: left;
 				border-radius: 0 0 0 0;
 				@include box-shadow(none);
 				border: transparent;
 				height: 28px;
-
-			}
-
-			.search-icon {
-				background-color: white;
 				background-image: image-url('search.png');
-				background-size: 60%;
-				background-position: 50% 50%;
 				background-repeat: no-repeat;
-				display: inline-block;
-				height: 28px;
-				width: 28px;
-				float: left;
-				margin-top: 6px;
+				background-size: 5.5%;
+				background-position: 95%;
+
 			}
 		}
 
@@ -137,6 +140,30 @@
 				}
 			}
 
+			.user-icons {
+				display: inline-block;
+				float: right;
+				margin-top: 6px;
+				margin-left: 15px;
+
+				span {
+					display: inline-block;
+					height: 24px;
+					width: 24px;
+					background-repeat: no-repeat;
+					background-size: 80% auto;
+					margin-left: 10px;
+				}
+
+				.notif-icon {
+					background-image: image-url('notif.png');
+				}
+
+				.message-icon {
+					background-image: image-url('nav-mess.png');
+				}
+
+			}
 
 		}
 	}
