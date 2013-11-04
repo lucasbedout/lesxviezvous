@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131030151029) do
+ActiveRecord::Schema.define(:version => 20131104180448) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20131030151029) do
     t.integer  "muted_count",         :default => 0
     t.integer  "banned_count",        :default => 0
     t.integer  "invitation_count",    :default => 0
+    t.string   "name"
   end
 
   create_table "identities", :force => true do |t|

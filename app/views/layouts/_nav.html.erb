@@ -99,4 +99,36 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- SUBMENU -->
+<!-- MODAL FOR GROUP/POST CREATION -->
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <ul class="nav nav-tabs" class="modal-title" id="myModalLabel">
+          <li class="active"><a href="#post" data-toggle="tab">Post</a></li>
+          <li><a href="#group" data-toggle="tab">Groupe</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="post">
+            <h3>Soumettre une information</h3>
+            <div class="modal-fields">
+              <%= render 'posts/fields' %>
+            </div>
+          </div>
+          <div class="tab-pane" id="group">
+            <h3>Créer un groupe</h3>
+            <%= form_tag '/communities/create' do %>
+              <%= text_field_tag :name, '', :placeholder => 'Nom du groupe' %>
+              Groupe privé ?
+              <%= check_box_tag(:privacy, checked_value = false, unchecked_value = true) %>
+              <%= submit_tag "Créer", class: "btn btn-primary" %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

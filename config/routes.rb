@@ -16,6 +16,8 @@ Lesxviezvous::Application.routes.draw do
     resource :posts
   end
 
+  resources :communities 
+
   resources :users do 
     get 'follow'
   end
@@ -23,6 +25,7 @@ Lesxviezvous::Application.routes.draw do
   get 'moderation', to: 'posts#moderate'
   get 'fakes', to: 'posts#index_fakes'
 
+  match 'communities/create', to: 'communities#create', via: [:post]
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]

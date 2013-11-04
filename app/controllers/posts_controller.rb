@@ -63,6 +63,7 @@ class PostsController < ApplicationController
     @post.users_ids_who_favorite_it = '[]'
     @post.users_ids_who_comment_it = '[]'
     @post.users_ids_who_reblog_it = '[]'
+    @post.communities_ids = '[]'
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
