@@ -1,0 +1,5 @@
+<% if current_user and !current_user.reblog? @post %>
+    $('.post-<%= @post.id %> .unreblog').addClass('reblog').removeClass('unreblog')
+<% elsif current_user and current_user.reblog? @post %>
+    $('.post-<%= @post.id %> .reblog').addClass('unreblog').removeClass('reblog')
+<% end %>

@@ -1,0 +1,5 @@
+<% if current_user and !current_user.favorite? @post %>
+    $('.post-<%= @post.id %> .unfavorite').addClass('favorite').removeClass('unfavorite')
+<% elsif current_user and current_user.favorite? @post %>
+    $('.post-<%= @post.id %> .favorite').addClass('unfavorite').removeClass('favorite')
+<% end %>

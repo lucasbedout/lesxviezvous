@@ -50,6 +50,10 @@
 		margin-left: 5px;
 	}
 
+	a:hover, a:active, a:focus {
+		outline: none;
+	}
+
 	.favorite {
 		background-image: image-url("favorite.png");
 		background-size: 75%;

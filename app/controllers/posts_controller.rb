@@ -161,7 +161,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       @post.save!
-      format.js { render 'validate' }
+      format.js { render 'favorite' }
     end 
   end
 
@@ -175,7 +175,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       @post.save!
-      format.js { render 'validate' }
+      format.js { render 'reblog' }
     end 
   end
 
