@@ -25,7 +25,7 @@
           <div class="user-connected">
             <%= link_to user_path(current_user), :class => 'picture-username' do %>
               <img src="<%= current_user.picture %>" />
-              <%= current_user.name %>
+              <%= current_user.username %>
             <% end %>
             <div class="user-icons">
                 <span class="message-icon"></span>
@@ -52,9 +52,13 @@
           <div class="tab-pane active" id="connexion">
             <h3>Se connecter au réseau</h3>
             <div class="manual-login">
-              <%= form_tag "/auth/identity/callback" do %>
-                <%= text_field_tag :auth_key, '', :placeholder => 'Adresse mail' %>
+              <%= form_tag sessions_path do %>
+                <%= text_field_tag :email, '', :placeholder => 'Adresse mail' %>
                 <%= password_field_tag :password, '',  :placeholder => 'Password' %>
+                <div class="checkbox">
+                    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+                     <%= label_tag 'Se souvenir de moi' %>
+                </div>
                 <%= submit_tag "Login", class: "btn btn-primary"%>
               <% end %>
             </div>
@@ -68,7 +72,7 @@
           </div>
           <div class="tab-pane" id="sign_up">
             <h3>S'inscrire manuellement</h3>
-              <%= form_tag "/auth/identity/register" do %>
+              <%= form_for(User.new) do |f| %>
               <% if @identity && @identity.errors.any? %>
                 <div class="error_messages">
                   <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -80,16 +84,16 @@
                 </div>
               <% end %>
               <div class="name-field">
-                <%= text_field_tag :name, @identity.try(:name),  :placeholder => 'Nom utilisateur' %>
+                <%= f.text_field :username, :placeholder => 'Nom utilisateur' %>
               </div>
               <div class="mail-field">
-                <%= text_field_tag :email, @identity.try(:email), :placeholder => 'Adresse mail' %>
+                <%= f.email_field :email, :placeholder => 'Adresse mail' %>
               </div>
               <div class="password-conf">
-                <%= password_field_tag :password, '', :placeholder => 'Mot de passe' %>
-                <%= password_field_tag :password_confirmation, '', :placeholder => 'Confirmation' %>
+                <%= f.password_field :password, :placeholder => 'Mot de passe' %>
+                <%= f.password_field :password_confirmation, :placeholder => 'Confirmation' %>
               </div>
-              <%= submit_tag "S'enregistrer", class: "btn btn-primary" %>
+              <%= f.submit "S'enregistrer", class: "submit-btn" %>
             <% end %>
             </div>
           </div>

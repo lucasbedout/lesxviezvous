@@ -18,4 +18,19 @@ class UsersController < ApplicationController
 	      format.js { render 'posts/validate' }
 	    end 
 	end
+
+	def new
+	    @user = User.new
+	 end
+	  
+	def create
+	  	@user = User.new(params[:user])
+	  	@user.picture = 'http://www.yonima.com/img/upload/default_user.jpg'
+	  	@user.picture_large = 'http://www.yonima.com/img/upload/default_user.jpg'
+	    if @user.save
+	      redirect_to root_url, :notice => "Inscription reussie"
+	    else
+	      redirect_to root_url, :notice => "Une erreur s'est produite !"
+	    end
+	  end
 end

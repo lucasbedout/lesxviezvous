@@ -269,13 +269,21 @@
 						margin-top: 15px;
 						background-color: $post-blue;
 					}
+
+					input[type="checkbox"] {
+						margin-left: 12px;
+					}
+
+					label {
+						font-weight: 300;
+					}
 				}
 			}
 
 			#sign_up {
 				text-align: center;
 
-				input[type="text"], input[type="password"] {
+				input[type="text"], input[type="password"], input[type="email"] {
 					height: 40px;
 					margin: 10px;
 					padding-left: 15px;
