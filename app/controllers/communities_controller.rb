@@ -9,7 +9,7 @@ class CommunitiesController < ApplicationController
 	end
 
 	def create
-	    @community = Community.create :name => params[:name], :owner_id => current_user.id, :public => params[:privacy]
+	    @community = Community.create :name => params[:name], :owner_id => current_user.id, :public => params[:privacy], :category_id => params[:category]
 	    respond_to do |format|
 	      if @community.save
 	        format.html { redirect_to @community, notice: 'community was successfully created.' }
