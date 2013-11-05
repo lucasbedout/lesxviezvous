@@ -120,7 +120,7 @@
           <div class="tab-pane" id="group">
             <h3>Créer un groupe</h3>
             <%= form_tag '/communities/create' do %>
-              <%= select_tag :category_id, options_from_collection_for_select(Category.all.collect, 'id', 'name') %>
+              <%= select_tag :category, options_from_collection_for_select(Category.all.collect, 'id', 'name') %>
               <div class="name">
                 <%= text_field_tag :name, nil, :placeholder => 'Nom du groupe' %>
               </div>

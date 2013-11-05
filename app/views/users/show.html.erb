@@ -38,10 +38,22 @@
 	</div>
 
 	<% @blogline.each do |post| %>
-		<% if @user.reblog? post %>
-			<div class="reblogged-post"><%= render 'posts/postline', {:post => post } %></div>
+
+		<% unless post.communities_row.first.blank? %>
+			<% if Community.find(post.communities_row.first).public != false %>
+				<% if @user.reblog? post %>
+					<div class="reblogged-post"><%= render 'posts/postline', {:post => post } %></div>
+				<% else %>
+					<%= render 'posts/postline', {:post => post } %>
+				<% end %>
+			<% end %>
 		<% else %>
-			<%= render 'posts/postline', {:post => post } %>
+			<% if @user.reblog? post %>
+				<div class="reblogged-post"><%= render 'posts/postline', {:post => post } %></div>
+			<% else %>
+				<%= render 'posts/postline', {:post => post } %>
+			<% end %>
 		<% end %>
+
 	<% end %>
 </div>
