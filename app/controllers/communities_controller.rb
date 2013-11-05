@@ -32,8 +32,17 @@ class CommunitiesController < ApplicationController
 	  	end
 
 	  	 respond_to do |format|
-	        format.html { redirect_to root_path, notice: 'OK' }
+	        format.html { redirect_to @community, notice: 'Merci de nous avoir rejoint' }
 	        format.json { render json: @community, status: :created, location: @community }
 	    end
 	  end
+
+	 def leave 
+	  	@community = Community.find(params[:community_id])
+	  	 respond_to do |format|
+	  	 	current_user.leave @community
+	        format.html { redirect_to @community, notice: 'Merci de nous avoir rejoint' }
+	        format.json { render json: @community, status: :created, location: @community }
+	    end
+	end
 end

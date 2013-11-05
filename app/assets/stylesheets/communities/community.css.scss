@@ -1,5 +1,65 @@
 .community {
 
+	.community-header {
+		background-color: $site-blue;
+
+		.profile-picture {
+			width: 150px;
+			height: 180px;
+			border: 3px solid white;
+			display: inline-block;
+			float: left;
+			background-position: 50% 0%;
+			margin: 5px;
+		}
+
+		.community-main {
+			height: 50px;
+			width: 100%;
+			background-color: $post-blue;
+
+			.community-name {
+				font-size: 24px;
+				font-weight: 300;
+				float: left;
+				line-height: 50px;
+				margin-left: 10px;
+				color: white;
+			}
+
+			.user-actions {
+				float: right;
+				margin: 5px;
+
+				.quit-grp {
+					background-image: image-url('quit.png')
+				}
+			}
+		}
+
+		.community-infos {
+			height: 150px;
+			width: 100%;
+
+			div {
+				margin-left: 10px;
+				color: white;
+				text-align: left;
+			}
+
+			.community-numbers {
+				
+			}
+
+			.info-title {
+				font-weight: 100;
+				font-size: 18px;
+				font-family: 'Lato';
+
+			}
+		}
+	}
+
 	.community-post-form {
 		min-height: 100px;
 		background-color: $site-blue;
@@ -21,7 +81,9 @@
 
 				textarea { 
 					width: 100%;
-					height: 50px;
+					height: 33px;
+					padding-top: 5px;
+					padding-left: 5px;
 				}		
 			}
 		}
@@ -29,10 +91,18 @@
 
 		.actions {
 			float: right;
-			margin-top: 10px;
+			margin-top: 0px;
 			margin-right: 25px;
 
 		}
 
 	}
+
+	.post-container {
+		margin-top: 20px;
+	}
+
+
 }
+
+

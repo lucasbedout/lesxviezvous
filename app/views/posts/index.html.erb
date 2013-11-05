@@ -1,3 +1,9 @@
 <% @posts.each do |post| %>
-    <%= render 'postline', :post => post %>
+	<% unless post.communities_row.first.blank? %>
+		<% if Community.find(post.communities_row.first).public != false %>
+    		<%= render 'postline', :post => post %>
+		<% end %>
+	<% else %>
+		<%= render 'postline', :post => post %>
+	<% end %>
 <% end %>

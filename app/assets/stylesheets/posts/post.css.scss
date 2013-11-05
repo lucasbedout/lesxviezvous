@@ -135,6 +135,10 @@
 		background-position: 50% 50%;
 	}
 
+	a:hover, a:focus, a:active {
+		outline: none;
+	}
+
 	.mail-user {
 		background-image: image-url('message.png');
 		background-size: 50%

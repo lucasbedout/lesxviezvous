@@ -18,6 +18,7 @@ Lesxviezvous::Application.routes.draw do
 
   resources :communities do 
     get :join
+    get :leave
   end
 
   resources :users do 

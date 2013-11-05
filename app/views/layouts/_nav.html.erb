@@ -126,7 +126,7 @@
               </div>
               <div class="privacy">
                  <span>Groupe privé ? </span>
-                <%= check_box_tag(:privacy, checked_value = false, unchecked_value = true) %>
+                <%= check_box_tag(:privacy, checked_value = true, unchecked_value = false) %>
               </div>
                 <%= submit_tag "Créer", class: "btn btn-primary" %>
             <% end %>

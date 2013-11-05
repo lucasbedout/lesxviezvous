@@ -1,7 +1,36 @@
 <div class="community">
-	<div class="community-post-form">
-		<%= render 'posts/fields' %>
+	<div class="community-header">
+		<div class="profile-picture" style='background-image: url(<%= @community.picture %>);'>
+		</div>
+		<div class="community-main">
+			<span class="community-name"><%= @community.name %></span>
+			<div class="user-actions">
+			    <% if current_user and !@community.include_user? current_user and !@community.invitations_row.include? current_user.id  %>
+			       <%= link_to '',  community_join_path(@community.id), {remote: true, class: 'add-user', title: 'Rejoindre la communauté' } %>
+			    <% elsif current_user and @community.include_user? current_user %>
+			       <%= link_to '',  community_leave_path(@community.id), {remote: true, class: 'quit-grp', title: 'Quitter la communauté' } %>
+			    <% end %>
+			</div>
+		</div>
+		<div class="community-infos">
+			<div class="description">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, porro, suscipit animi quibusdam vitae voluptatum inventore sapiente voluptate amet beatae consequatur eveniet quod molestias doloremque maiores blanditiis consectetur ipsum ab!
+			</div>
+			<div class="user-numbers">
+				<h3 class="info-title">Chiffres et récompenses</h3>
+				<div class="info-row-1">
+					<span>5 derniers trospanhées</span>
+					<span>Classement de la semaine</span>
+					<span>spanosts</span>
+				</div>
+			</div>
+		</div>
 	</div>
+	<% if current_user and @community.writers_row.include? current_user.id %>
+		<div class="community-post-form">
+			<%= render 'posts/fields' %>
+		</div>
+	<% end %>
 
 	<% @blogline.each do |post| %>
 			<%= render 'posts/postline', {:post => post } %>

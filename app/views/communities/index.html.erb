@@ -15,7 +15,7 @@
     <td><%= community.owner_id %></td>
     <td><%= community.public %></td>
     <td> <%= link_to 'Join',  community_join_path(community.id),  :class => 'add-user'  %></td>
-    <td><%= link_to 'Edit', edit_community_path(community) %></td>
+    <td><%= link_to 'Show', community_path(community) %></td>
     <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
