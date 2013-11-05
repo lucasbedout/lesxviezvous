@@ -2,11 +2,11 @@
 	<div class="profile-header">
 		<div class="profile-picture" style='background-image: url(<%= @user.picture_large %>);'></div> 
 		<div class="user-main">
-			<span class="profile-username"><%= @user.name %></span>
+			<span class="profile-username"><%= @user.username %></span>
 			<span class="profile-title">Novice</span>
-			<span class="user-points"><%= @user.points %></span>
+			<span class="user-points">6.256</span>
 			<div class="user-actions">
-		    <% if current_user and !current_user.follow? User.find(@user.id) %>
+		    <% if current_user and !current_user.follow? User.find(@user.id) and current_user.id != @user.id %>
 		       <%= link_to '',  user_follow_path(@user.id), {remote: true, class: 'add-user' } %>
 		    <% end %>
 		      <%= link_to '', '#', :class => 'mail-user' %>

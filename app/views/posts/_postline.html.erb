@@ -3,7 +3,7 @@
         <%= link_to user_path(User.find(post.user_id)) do %> 
             <%= image_tag Post.user(post.user_id).picture %>
             <div class="user-text">
-                <span class="user-name"><%= User.find(post.user_id).name %></span>       
+                <span class="user-name"><%= User.find(post.user_id).username %></span>       
                 <span class="user-title"><%= User.find(post.user_id).title %></span>
             </div>
         <% end %>

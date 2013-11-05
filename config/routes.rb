@@ -28,10 +28,13 @@ Lesxviezvous::Application.routes.draw do
   get 'moderation', to: 'posts#moderate'
   get 'fakes', to: 'posts#index_fakes'
 
-  match 'communities/create', to: 'communities#create', via: [:post]
-  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-  match 'auth/failure', to: redirect('/'), via: [:get, :post]
-  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  resources :users
+  resources :sessions
+  get "secret" => "home#secret", :as => "secret"
+  root :to => "home#index"
 
 
   # Authentication routes
