@@ -63,6 +63,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post]) # params : content, category, source
+    if !params[:community].blank?
+      @post.category_id = Community.find(params[:community]).category_id
+    end
 
     @post.user_id = current_user.id
     @post.users_ids_who_favorite_it = '[]'

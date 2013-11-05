@@ -1,0 +1,38 @@
+.community {
+
+	.community-post-form {
+		min-height: 100px;
+		background-color: $site-blue;
+		margin-bottom: 20px;
+
+		label {
+			display: none;
+		}
+		form {
+			display: block;
+			width: 100;
+			min-height: 100px;
+
+			.content-new {
+				margin: auto;
+				width: 85%;
+				padding-left: 10px;
+				float: left;
+
+				textarea { 
+					width: 100%;
+					height: 50px;
+				}		
+			}
+		}
+	
+
+		.actions {
+			float: right;
+			margin-top: 10px;
+			margin-right: 25px;
+
+		}
+
+	}
+}

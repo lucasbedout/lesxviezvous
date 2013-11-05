@@ -1,21 +1,24 @@
 <%= form_for(Post.new) do |f| %> 
-  <div class="category">
+  
+  <% if params[:controller] != 'communities' %>
+    <div class="category">
     <%= f.label 'Catégorie' %>
     <%= select('post', 'category_id', Category.all.collect {|p| [ p.name, p.id ] })%>
-  </div>
-  <div class="source">
-    <%= f.label 'Source' %>
-    <%= f.text_field :source %>
-  </div>
+    </div>
+    <div class="source">
+      <%= f.label 'Source' %>
+      <%= f.text_field :source %>
+    </div>
+  <% end %>
   <br />
   <div class="content-new">
     <%= f.label 'Contenu' %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :placeholder => 'Quelque-chose à nous dire ?' %>
   </div>
   <% if params[:controller] == 'communities' %>
     <%= hidden_field_tag :community, params[:id] %>
   <% end %>
   <div class="actions">
-    <%= f.submit :class => 'btn'%>
+    <%= f.submit :class => 'submit-btn'%>
   </div>
 <% end %>

@@ -1,89 +1,86 @@
 .user-profile {
-	background-color: $site-blue;
 	width: 100%;
 
-	.profile-picture {
-		width: 150px;
-		height: 180px;
-		border: 3px solid white;
-		display: inline-block;
-		float: left;
-		background-position: 50% 0%;
-		margin: 5px;
-	}
+	.profile-header {
+		background-color: $site-blue;
 
-	.user-main {
-		height: 50px;
-		width: 100%;
-		background-color: $post-blue;
-
-		.profile-username {
-			font-size: 24px;
-			font-weight: 300;
-			float: left;
-			line-height: 50px;
-			margin-left: 10px;
-			color: white;
-		}
-
-		.profile-title {
-			float: left;
-			margin-left: 15px;
-			line-height: 50px;
-			color: white;
-			font-weight: 400;
-		}
-
-		.user-points {
-			margin: 5px;
-		}
-
-		.user-actions {
-			float: right;
-			margin: 5px;
-		}
-	}
-
-	.user-infos {
-		height: 150px;
-		width: 100%;
-		margin-bottom: 20px;
-		div {
+		.profile-picture {
+			width: 150px;
+			height: 180px;
+			border: 3px solid white;
 			display: inline-block;
-			margin-left: 10px;
-			color: white;
-			text-align: left;
-		}
-
-		.info-title {
-			font-weight: 100;
-			font-size: 18px;
-			font-family: 'Lato';
-
-		}
-
-		.user-personal {
 			float: left;
+			background-position: 50% 0%;
+			margin: 5px;
 		}
 
-		.user-numbers {
-			float: right;
+		.user-main {
+			height: 50px;
+			width: 100%;
+			background-color: $post-blue;
+
+			.profile-username {
+				font-size: 24px;
+				font-weight: 300;
+				float: left;
+				line-height: 50px;
+				margin-left: 10px;
+				color: white;
+			}
+
+			.profile-title {
+				float: left;
+				margin-left: 15px;
+				line-height: 50px;
+				color: white;
+				font-weight: 400;
+			}
+
+			.user-points {
+				margin: 5px;
+			}
+
+			.user-actions {
+				float: right;
+				margin: 5px;
+			}
+		}
+
+		.user-infos {
+			height: 150px;
+			width: 100%;
+			margin-bottom: 20px;
+			div {
+				display: inline-block;
+				margin-left: 10px;
+				color: white;
+				text-align: left;
+			}
+
+			.info-title {
+				font-weight: 100;
+				font-size: 18px;
+				font-family: 'Lato';
+
+			}
+
+			.user-personal {
+				float: left;
+			}
+
+			.user-numbers {
+				float: right;
+			}
 		}
 	}
+
+	
 
 	.reblogged-post {
-		background-image: url("/assets/retweeted.png");
+	background-image: url("/assets/retweeted.png");
 	background-repeat: no-repeat;
 	background-position: 98% 0;
 	background-size: 3.5%;
 	}
 
-	.post-container {
-		@include box-shadow(none);
-		background-color: transparent;
-
-		.post-footer {
-			background-color: $post-blue;
-		}
-	}
 }

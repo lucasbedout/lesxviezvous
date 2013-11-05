@@ -2,6 +2,8 @@
 
 $site-blue: rgb(41, 128, 177);
 $asphalt: rgb(44, 62, 80);
+$midnight: rgb(62, 83, 104);
+$midnight-hover: rgb(72, 93, 114);
 $content-blue: rgb(30, 100, 140);
 $post-blue: rgb(31, 155, 215);
 $nephrytis: rgb(39, 174, 96);
@@ -22,6 +24,7 @@ $gold: rgb(243, 181, 0);
 
 @import "twitter/bootstrap";
 @import "grid-overrides";
+@import "design-class";
 
 // FONTS
 
@@ -40,10 +43,15 @@ $gold: rgb(243, 181, 0);
 @import "posts/index";
 @import "posts/post";
 
+
 // ADMIN
 @import "active_admin/mixins";
 @import "active_admin/base";
 
 // USERS
-@import "users/user"
+@import "users/user";
+
+// COMMUNITY
+
+@import "communities/community"
 
