@@ -18,4 +18,25 @@ class UsersController < ApplicationController
 	      format.js { render 'posts/validate' }
 	    end 
 	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+    @user = User.find(params[:id])
+    if @user.provider == 'identity'
+    	@identity = Identity.find(@user.uid)
+    end
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to @user, notice: 'user was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

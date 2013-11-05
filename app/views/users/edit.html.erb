@@ -1,0 +1,17 @@
+<div class="user-edit">
+	<% if @user.provider == 'identity' %>
+		<%= form_for(@identity) do |f| %>
+			<div class="primary-infos">
+				<%= f.text_field(:name,  :placeholder => 'Nom utilisateur') %>
+				<div class="password">
+					<%= f.password_field(:actual_password,  :placeholder => 'Mot de passe actuel') %>
+					<%= f.password_field(:password,  :placeholder => 'Nouveau mot de passe') %>
+					<%= f.password_field(:password_confirmation,  :placeholder => 'Confirmation') %>
+				</div>
+
+				<%= f.email_field(:email,  :placeholder => 'Nouvel email') %>-->
+			</div>	
+		<% end %>
+	<% end %>
+	  
+</div>
