@@ -10,12 +10,8 @@ gem 'sqlite3'
 # Using mysql as main database for dev and prod
 gem 'mysql2'
 
-# Using omniauth for authentication
-gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
-gem 'omniauth-twitter', '1.0.0'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-identity'
+# Using sorcery for authentication
+gem 'sorcery'
 
 # Using inkwell for social features
 gem 'inkwell'

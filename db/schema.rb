@@ -55,19 +55,6 @@ ActiveRecord::Schema.define(:version => 20131105121542) do
     t.string   "picture"
   end
 
-  create_table "identities", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "title",           :default => "Novice"
-    t.integer  "points",          :default => 0
-    t.integer  "rank",            :default => 0
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.string   "picture"
-    t.string   "picture_large"
-  end
-
   create_table "inkwell_blog_items", :force => true do |t|
     t.integer  "item_id"
     t.boolean  "is_reblog"
@@ -151,16 +138,12 @@ ActiveRecord::Schema.define(:version => 20131105121542) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
-    t.string   "title",            :default => "Novice"
-    t.integer  "points",           :default => 0
-    t.integer  "rank",             :default => 0
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.string   "username",                        :null => false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "picture"
     t.string   "picture_large"
     t.integer  "follower_count",   :default => 0
