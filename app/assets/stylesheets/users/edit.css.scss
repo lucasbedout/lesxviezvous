@@ -29,14 +29,20 @@
 		}
 	}
 
-	input[type="text"], input[type="password"], input[type="email"] {
+	input[type="text"], input[type="password"], input[type="email"], input[type="url"] {
 			margin: 10px;
 			height: 40px;
 			margin-bottom: 10px;
 			padding-left: 15px;
 			border: medium none;
 			outline: medium none;
-		}
+	}
+
+	select {
+		padding: 10px;
+		display: inline-block;
+		margin: auto;
+	}
 
 	.legend {
 		display: block;

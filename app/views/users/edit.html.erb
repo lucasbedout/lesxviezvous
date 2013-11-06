@@ -15,10 +15,15 @@
 		<div class="secundary-infos">
 			<span class="legend">Image du profil</span>
 			<%= f.text_field(:picture,  :placeholder => 'Lien vers votre photo de profil') %><img src="<%= @user.picture %>" />
+			<%= f.text_field(:birthdate, :placeholder => 'Date de naissance') %>
+			<%= select_tag(:gender, options_for_select([['Homme', 0], ['Femme', 1]])) %>
+			<%= f.text_field(:hobbies,  :placeholder => "Qu'aimez-vous faire ?") %>
+			<%= f.text_field(:languages,  :placeholder => 'Quelles langues parlez-vous ?') %>
+			<%= f.text_field(:job,  :placeholder => 'Quel est votre métier ?') %>
+			<%= f.url_field(:website,  :placeholder => 'Un site internet ?') %>
 		</div>	
 		<div class="actions">
 			<%= f.submit 'Envoyer', :class => 'submit-btn' %>
 		</div>
-	<% end %>
-	  
+	<% end %> 
 </div>
