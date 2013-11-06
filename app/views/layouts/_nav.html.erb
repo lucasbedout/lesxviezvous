@@ -28,8 +28,9 @@
               <%= current_user.username %>
             <% end %>
             <div class="user-icons">
-                <span class="message-icon"></span>
-                <span class="notif-icon"></span>
+                <%= link_to '', edit_user_path(current_user), :class => 'message-icon' %>
+                <%= link_to '', edit_user_path(current_user), :class => 'notif-icon' %>
+                <%= link_to '', edit_user_path(current_user), :class => 'params-icon' %>
               </div>
         <% end %>
     </div>
@@ -61,13 +62,6 @@
                 </div>
                 <%= submit_tag "Login", class: "btn btn-primary"%>
               <% end %>
-            </div>
-            <div class="social-login">
-              Ou utilisez un de nos providers externe
-              <div class="links">
-                <%= link_to '', '/auth/twitter', :class => 'login-twitter' %>
-                <%= link_to '', '/auth/facebook', :class => 'login-facebook' %>
-              </div>
             </div>
           </div>
           <div class="tab-pane" id="sign_up">
@@ -123,7 +117,7 @@
           </div>
           <div class="tab-pane" id="group">
             <h3>Créer un groupe</h3>
-            <%= form_tag '/communities/create' do %>
+            <%= form_tag communities_path do %>
               <%= select_tag :category, options_from_collection_for_select(Category.all.collect, 'id', 'name') %>
               <div class="name">
                 <%= text_field_tag :name, nil, :placeholder => 'Nom du groupe' %>

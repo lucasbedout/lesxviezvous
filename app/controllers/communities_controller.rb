@@ -8,6 +8,10 @@ class CommunitiesController < ApplicationController
 		@blogline = @community.blogline(:last_shown_obj_id => nil, :limit => 10, :for_user => nil)
 	end
 
+	def new
+		@community = Community.new
+	end
+
 	def create
 	    @community = Community.create :name => params[:name], :owner_id => current_user.id, :public => params[:privacy]
 	    @community.category_id = params[:category]

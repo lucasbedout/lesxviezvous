@@ -1,17 +1,24 @@
 <div class="user-edit">
-	<% if @user.provider == 'identity' %>
-		<%= form_for(@identity) do |f| %>
-			<div class="primary-infos">
-				<%= f.text_field(:name,  :placeholder => 'Nom utilisateur') %>
-				<div class="password">
-					<%= f.password_field(:actual_password,  :placeholder => 'Mot de passe actuel') %>
-					<%= f.password_field(:password,  :placeholder => 'Nouveau mot de passe') %>
-					<%= f.password_field(:password_confirmation,  :placeholder => 'Confirmation') %>
-				</div>
-
-				<%= f.email_field(:email,  :placeholder => 'Nouvel email') %>-->
-			</div>	
-		<% end %>
+ <div class="edit-title">Edition du profil utilisateur</div>
+	<%= form_for(@user) do |f| %>
+		<div class="primary-infos">
+			<span class="legend">Nom utilisateur</span> <%= f.text_field(:username,  :placeholder => 'Nom utilisateur') %>
+			<span class="legend">Adresse mail</span>
+			<%= f.email_field(:email,  :placeholder => 'Nouvel email') %>
+			<span class="legend">Sécurité</span>
+			<div class="password">
+				<%= f.password_field(:actual_password,  :placeholder => 'Mot de passe actuel') %>
+				<%= f.password_field(:password,  :placeholder => 'Nouveau mot de passe') %>
+				<%= f.password_field(:password_confirmation,  :placeholder => 'Confirmation') %>
+			</div>
+		</div>	
+		<div class="secundary-infos">
+			<span class="legend">Image du profil</span>
+			<%= f.text_field(:picture,  :placeholder => 'Lien vers votre photo de profil') %><img src="<%= @user.picture %>" />
+		</div>	
+		<div class="actions">
+			<%= f.submit 'Envoyer', :class => 'submit-btn' %>
+		</div>
 	<% end %>
 	  
 </div>

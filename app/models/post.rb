@@ -5,11 +5,4 @@ class Post < ActiveRecord::Base
   has_many :comments, :as => :commentable
   acts_as_inkwell_post
 
-  def self.user(id)
-  	 if User.find_by_uid(id).blank? 
-  	 	User.find(id) 
-  	 else 
-  	 	User.find_by_uid(id)
-  	 end 
-  end
 end

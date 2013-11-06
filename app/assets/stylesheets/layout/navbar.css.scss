@@ -167,7 +167,7 @@
 				margin-top: 6px;
 				margin-left: 15px;
 
-				span {
+				a {
 					display: inline-block;
 					height: 24px;
 					width: 24px;
@@ -176,12 +176,20 @@
 					margin-left: 10px;
 				}
 
+				a:hover {
+					background-color: transparent;
+				}
+
 				.notif-icon {
 					background-image: image-url('notif.png');
 				}
 
 				.message-icon {
 					background-image: image-url('nav-mess.png');
+				}
+
+				.params-icon {
+					background-image: image-url('nav-params.png')
 				}
 
 			}
@@ -267,7 +275,6 @@
 						display: block;
 						margin: auto;
 						margin-top: 15px;
-						background-color: $post-blue;
 					}
 
 					input[type="checkbox"] {

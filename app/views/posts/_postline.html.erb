@@ -1,13 +1,13 @@
 <div class="post-container post-<%= post.id %>">
     <div class="post-header">
         <%= link_to user_path(User.find(post.user_id)) do %> 
-            <%= image_tag Post.user(post.user_id).picture %>
+            <%= image_tag User.find(post.user_id).picture %>
             <div class="user-text">
                 <span class="user-name"><%= User.find(post.user_id).username %></span>       
-                <span class="user-title"><%= User.find(post.user_id).title %></span>
+                <span class="user-title">Novice</span>
             </div>
         <% end %>
-        <span class="user-points"><%= User.find(post.user_id).points %></span>
+        <span class="user-points">4.292</span>
         <div class="user-actions">
             <% if current_user and !current_user.follow? User.find(post.user_id) %>
                 <%= link_to '',  user_follow_path(post.user_id), {remote: true, class: 'add-user' } %>

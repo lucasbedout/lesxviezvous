@@ -25,16 +25,20 @@ class UsersController < ApplicationController
 
 	def update
 	    @user = User.find(params[:id])
-
-	    respond_to do |format|
-	      if @user.update_attributes(params[:user])
-	        format.html { redirect_to @user, notice: 'user was successfully updated.' }
-	        format.json { head :no_content }
-	      else
-	        format.html { render action: "edit" }
-	        format.json { render json: @user.errors, status: :unprocessable_entity }
-	      end
-	    end
+	    if login(params[:user][:email], params[:user][:actual_password])
+	    	params[:user].delete(:actual_password)
+		    respond_to do |format|
+		      if @user.update_attributes(params[:user])
+		        format.html { redirect_to @user, notice: 'user was successfully updated.' }
+		        format.json { head :no_content }
+		      else
+		        format.html { render action: "edit" }
+		        format.json { render json: @user.errors, status: :unprocessable_entity }
+		      end
+		    end
+		else 
+			redirect_to edit_user_path(@user), :flash => { :error => 'Mot de passe actuel invalide'}
+		end
 	end
 	def new
 	    @user = User.new
