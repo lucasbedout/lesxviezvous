@@ -1,0 +1,71 @@
+.community-edit {
+	background-color: $site-blue;
+	padding: 10px;
+	color: white;
+	min-height: 350px;
+
+	.edit-title {
+		font-weight: 100;
+		font-size: 24px;
+	}
+
+	.primary-infos {
+		display: inline-block;
+		width: 50%;
+		float: left;
+	}
+
+	.secundary-infos {
+		display: inline-block;
+		width: 50%;
+		float: right;
+
+		img {
+			width: 50px;
+			height: 50px;
+			margin-left: 20px;
+			margin-top: -5px;
+		}
+	}
+
+	input[type="text"], input[type="password"], input[type="email"], input[type="url"] {
+			margin: 10px;
+			height: 40px;
+			margin-bottom: 10px;
+			padding-left: 15px;
+			border: medium none;
+			outline: medium none;
+	}
+
+	select {
+		padding: 10px;
+		display: inline-block;
+		margin: auto;
+	}
+
+	textarea {
+		height: 50px;
+		margin-top: 10px;
+	}
+
+	.select-range { 
+		display: block;
+		margin-top: 10px;
+
+		.legend {
+			display: inline-block;
+			width: 200px;
+			height: 20px;
+		}
+	}
+
+	.legend {
+		display: block;
+	}
+
+	.actions {
+		margin: auto;
+		display: block;
+		width: 100px;
+	}
+}

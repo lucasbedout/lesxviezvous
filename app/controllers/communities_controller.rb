@@ -24,9 +24,26 @@ class CommunitiesController < ApplicationController
 	        format.json { render json: @community.errors, status: :unprocessable_entity }
 	      end
 	    end
-	  end
+	end
 
-	  def join 
+	def edit
+		@community = Community.find(params[:id])
+	end
+
+	def update
+	    @community = Community.find(params[:id])
+		    respond_to do |format|
+		      if @community.update_attributes(params[:community])
+		        format.html { redirect_to @community, notice: 'community was successfully updated.' }
+		        format.json { head :no_content }
+		      else
+		        format.html { render action: "edit" }
+		        format.json { render json: @community.errors, status: :unprocessable_entity }
+		      end
+		    end
+	end
+
+	 def join 
 	  	@community = Community.find(params[:community_id])
 
 	  	if @community.public == true
@@ -39,9 +56,9 @@ class CommunitiesController < ApplicationController
 	        format.html { redirect_to @community, notice: 'Merci de nous avoir rejoint' }
 	        format.json { render json: @community, status: :created, location: @community }
 	    end
-	  end
+	end
 
-	 def leave 
+	def leave 
 	  	@community = Community.find(params[:community_id])
 	  	 respond_to do |format|
 	  	 	current_user.leave @community

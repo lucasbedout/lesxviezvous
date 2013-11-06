@@ -1,0 +1,25 @@
+<div class="community-edit">
+ <div class="edit-title">Edition du profil communautaire</div>
+	<%= form_for(@community) do |f| %>
+		<div class="primary-infos">
+			<span class="legend">Nom du groupe</span> <%= f.text_field(:name,  :placeholder => 'Nom du groupe') %>
+			<div class="multiselect">
+				<div class="select-range"><span class="legend">Droits utilisateur par défaut</span>
+				<%= select_tag(:default_user_access, options_for_select([['Ecriture', 'w'], ['Lecture', 'r']])) %></div>
+				<div class="select-range"><span class="legend">Statut du groupe</span>
+				<%= select_tag(:public, options_for_select([['Public', 1], ['Privé', 0]])) %></div> 
+			</div>
+		</div>
+		<div class="secundary-infos">
+			<span class="legend">Image du groupe</span>
+			<%= f.text_field(:picture,  :placeholder => 'Lien vers votre photo de profil') %><img src="<%= @community.picture %>" />
+			<span class="legend">Localisation de la communauté</span>
+			<%= f.text_field(:place,  :placeholder => 'Localisation') %>
+			<span class="legend">Description du groupe</span>
+			<%= f.text_area(:description,  :placeholder => 'Brève description du groupe') %>
+		</div>
+		<div class="actions">
+			<%= f.submit 'Envoyer', :class => 'submit-btn' %>
+		</div>
+	<% end %> 
+</div>
