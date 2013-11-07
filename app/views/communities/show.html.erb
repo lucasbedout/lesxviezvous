@@ -17,14 +17,21 @@
 		</div>
 		<div class="community-infos">
 			<div class="description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, porro, suscipit animi quibusdam vitae voluptatum inventore sapiente voluptate amet beatae consequatur eveniet quod molestias doloremque maiores blanditiis consectetur ipsum ab!
+				<% if !@community.description.blank? %>
+					<%= @community.description %>
+				<% else %>
+					<div class="user-list">
+						<% @community.users.last(10).each do |u| %>
+							<div class="mini-pic" style='background-image: url(<%= u.picture %>);'></div>
+						<% end %>
+					</div>
+				<% end %>
 			</div>
-			<div class="user-numbers">
-				<h3 class="info-title">Chiffres et récompenses</h3>
+			<div class="attributes">
 				<div class="info-row-1">
-					<span>5 derniers trospanhées</span>
-					<span>Classement de la semaine</span>
-					<span>spanosts</span>
+					<% if !@community.place.blank? %><div class="line"><span>Localisation</span> <%= @community.place %></div><% end %>
+					<div class="line"><span>Nombre d'abonnés</span> <%= @community.user_count %></div>
+					<div class="line"><span>Catégorie</span> <%= Category.find(@community.category_id).name %></div>
 				</div>
 			</div>
 		</div>
