@@ -31,8 +31,19 @@
 				float: right;
 				margin: 5px;
 
+				a {
+					width: 24px;
+					height: 24px;
+					background-size: 100%;
+					margin-top: 8px;
+				}
+
 				.quit-grp {
 					background-image: image-url('quit.png')
+				}
+
+				.community-params {
+					background-image: image-url('community-params.png');
 				}
 			}
 		}
@@ -99,6 +110,27 @@
 
 	.post-container {
 		margin-top: 20px;
+
+		.moderation {
+			display: inline-block;
+			float: right;
+			a {
+				display: inline-block;
+				height: 40px;
+				width: 40px;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+
+			a:hover, a:focus, a:active {
+				outline: none;
+			}
+
+			.delete-post {
+				background-image: image-url('delete.png');
+				background-size: 50%
+			}
+		}
 	}
 
 

@@ -5,9 +5,12 @@
 		<div class="community-main">
 			<span class="community-name"><%= @community.name %></span>
 			<div class="user-actions">
+				<% if current_user and @community.admins_row.include? current_user.id  %>
+					<%= link_to '',  edit_community_path(@community), {class: 'community-params', title: 'Rejoindre la communauté' } %>
+				<% end %>
 			    <% if current_user and !@community.include_user? current_user and !@community.invitations_row.include? current_user.id  %>
 			       <%= link_to '',  community_join_path(@community.id), {remote: true, class: 'add-user', title: 'Rejoindre la communauté' } %>
-			    <% elsif current_user and @community.include_user? current_user %>
+			    <% elsif current_user and @community.include_user? current_user and @community.owner_id != current_user.id %>
 			       <%= link_to '',  community_leave_path(@community.id), {remote: true, class: 'quit-grp', title: 'Quitter la communauté' } %>
 			    <% end %>
 			</div>

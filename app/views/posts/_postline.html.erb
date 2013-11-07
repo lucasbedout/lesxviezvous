@@ -14,6 +14,13 @@
             <% end %>
             <%= link_to '', '#', :class => 'mail-user' %>
         </div>
+        <div class="moderation">
+            <% if params[:controller] == 'communities' %>
+                <% if current_user and Community.find(params[:id]).admins_row.include? current_user.id %>
+                    <%= link_to '', post, method: :delete,  data: { confirm: 'Are you sure?' }, :class => 'delete-post'  %>
+                <% end %>
+            <% end %>
+        </div>
     </div>
     <%= link_to post_path(post), :class => 'post-link' do %>
         <div class="post-content">
