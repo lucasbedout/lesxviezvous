@@ -1,0 +1,9 @@
+<%= form_for(Question.new) do |f| %> 
+    <div class="content-new">
+      <%= f.text_area :text, :placeholder => 'Une question à nous poser ?' %>
+      <%= hidden_field_tag :community, params[:id] %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Envoyer', :class => 'submit-btn'%>
+    </div>
+<% end %>

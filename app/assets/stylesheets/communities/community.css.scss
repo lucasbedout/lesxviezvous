@@ -103,7 +103,44 @@
 		}
 	}
 
-	.community-post-form {
+	.nav-tabs {
+		background-color: $content-blue;
+		border-color: transparent;
+
+		li {
+			
+			a {
+				border-radius: 0 0 0 0;
+				border-color: transparent;
+				color: white;
+			}
+
+			a:hover, a:active, a:focus {
+				background-color: $site-blue;
+				outline: none;
+				color: white;
+			}
+		}
+
+		.active {
+			a {
+				background-color: $site-blue;
+				border-color: transparent;
+				color: white;
+			}
+
+			a:hover, a:active, a:focus {
+				background-color: $site-blue;
+				border-color: transparent;
+				outline: none;
+				color: white;
+			}
+		}
+
+
+	}
+
+	.community-post-form, .community-question-form {
 		background-color: $site-blue;
 		margin-bottom: 20px;
 
@@ -117,6 +154,7 @@
 
 			.content-new {
 				margin: auto;
+				margin-top: 10px;
 				width: 85%;
 				padding-left: 10px;
 				float: left;
@@ -133,7 +171,7 @@
 
 		.actions {
 			float: right;
-			margin-top: 0px;
+			margin-top: 10px;
 			margin-right: 25px;
 
 		}
