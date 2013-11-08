@@ -6,7 +6,8 @@
 			<span class="community-name"><%= @community.name %></span>
 			<div class="user-actions">
 				<% if current_user and @community.admins_row.include? current_user.id  %>
-					<%= link_to '',  edit_community_path(@community), {class: 'community-params', title: 'Rejoindre la communauté' } %>
+					<%= link_to '',  edit_community_path(@community), {class: 'community-params', title: 'Paramètres' } %>
+					<div class="add-toggle" data-toggle="modal" data-target="#userlist"><%= link_to '', '#', { :class => 'user-list', :title => 'Liste des utilisateurs' } %></div>
 				<% end %>
 			    <% if current_user and !@community.include_user? current_user and !@community.invitations_row.include? current_user.id  %>
 			       <%= link_to '',  community_join_path(@community.id), {remote: true, class: 'add-user', title: 'Rejoindre la communauté' } %>
@@ -45,4 +46,23 @@
 	<% @blogline.each do |post| %>
 			<%= render 'posts/postline', {:post => post } %>
 	<% end %>
+
+	<div class="modal fade" id="userlist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div class="community-users">
+        	<% @community.users.each do |user| %>
+        		<%= link_to user, :class => 'user-redux' do %>
+	        		<div class="profile-picture" style='background-image: url(<%= user.picture_large %>);'></div> 
+	        		<div class="username"><%= user.username %></div>
+	        	<% end %>
+	        <% end %>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </div>
+

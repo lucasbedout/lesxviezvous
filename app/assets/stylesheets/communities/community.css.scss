@@ -38,12 +38,22 @@
 					margin-top: 8px;
 				}
 
+				.add-toggle {
+					display: inline-block;
+					float: left;
+					margin-right: 20px;
+				}
+
 				.quit-grp {
 					background-image: image-url('quit.png')
 				}
 
 				.community-params {
 					background-image: image-url('community-params.png');
+				}
+
+				.user-list {
+					background-image: image-url('userlist.png');
 				}
 			}
 		}
@@ -155,6 +165,51 @@
 		}
 	}
 
+	.modal-body {
+		height: 500px;
+		overflow-y: scroll;
+		background-color: white;
+
+		.community-users {
+			margin-top: 20px;
+
+			.user-redux {
+				width: 100%;
+				height: 60px;
+				display: block;
+				padding-top: 5px;
+			}
+
+			.user-redux:hover {
+				background-color: rgba(30, 100, 140, 0.1);
+			}
+
+			.profile-picture {
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				background-size: 100% auto;
+				background-position: center center;
+				float: left;
+			}
+
+			.username {
+				float: left;
+				margin-top: 10px;
+				margin-left: 10px;
+				color: $site-blue;
+			}
+
+			.username:hover {
+				outline: none;
+				text-decoration: none;
+			}
+		}
+	}
+
 }
 
+
+
+	
 
