@@ -184,21 +184,9 @@
 		.moderation {
 			display: inline-block;
 			float: right;
-			a {
-				display: inline-block;
-				height: 40px;
-				width: 40px;
-				background-repeat: no-repeat;
-				background-position: 50% 50%;
-			}
 
-			a:hover, a:focus, a:active {
-				outline: none;
-			}
-
-			.delete-post {
-				background-image: image-url('delete.png');
-				background-size: 50%
+			.btn-group {
+				margin: 8px;
 			}
 		}
 	}

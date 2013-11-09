@@ -17,7 +17,19 @@
         <div class="moderation">
             <% if params[:controller] == 'communities' %>
                 <% if current_user and Community.find(params[:id]).admins_row.include? current_user.id %>
-                    <%= link_to '', post, method: :delete,  data: { confirm: 'Are you sure?' }, :class => 'delete-post'  %>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-xs"><i class="glyphicon glyphicon-wrench"></i></button>
+                      <button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#"class="add-toggle" data-toggle="modal" data-target="#edit-post">Editer</a></li>
+                        <li><%= link_to 'Supprimer', post, method: :delete,  data: { confirm: 'Are you sure?' } %></li>
+                        <li><a href="#">Rendre muet</a></li>
+                        <li><a href="#">Bannir</a></li>
+                      </ul>
+                    </div>                  
                 <% end %>
             <% end %>
         </div>
@@ -50,4 +62,40 @@
             <a href="#" class="google"></a>
         </div>
     </div>
-  </div>
+</div>
+
+<!-- Post edit modal -->
+
+<div class="modal fade" id="edit-post" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <%= form_for(post) do |f| %> 
+            <% if params[:controller] != 'communities' %>
+                <div class="category">
+                <%= f.label 'Catégorie' %>
+                <%= select('post', 'category_id', Category.all.collect {|p| [ p.name, p.id ] })%>
+                </div>
+                <div class="source">
+                  <%= f.label 'Source' %>
+                  <%= f.text_field :source %>
+                </div>
+            <% end %>
+            <div class="content-new">
+                <%= f.label 'Contenu' %>
+                <%= f.text_area :content, :placeholder => 'Quelque-chose à nous dire ?' %>
+            </div>
+            <% if params[:controller] == 'communities' %>
+                <%= hidden_field_tag :community, params[:id] %>
+            <% end %>
+            <div class="actions">
+                <%= f.submit 'Envoyer', :class => 'submit-btn'%>
+            </div>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
