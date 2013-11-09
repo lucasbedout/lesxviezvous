@@ -69,7 +69,7 @@
 <div class="modal fade" id="edit-post" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body">
+      <div class="modal-body modal-edit-post">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <%= form_for(post) do |f| %> 
             <% if params[:controller] != 'communities' %>
@@ -83,7 +83,6 @@
                 </div>
             <% end %>
             <div class="content-new">
-                <%= f.label 'Contenu' %>
                 <%= f.text_area :content, :placeholder => 'Quelque-chose à nous dire ?' %>
             </div>
             <% if params[:controller] == 'communities' %>

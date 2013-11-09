@@ -233,6 +233,22 @@
 		}
 	}
 
+	.modal-edit-post {
+		height: 250px;
+		background-color: $site-blue;
+		overflow: hidden;
+
+		.content-new {
+
+			textarea {
+				width: 100%;
+				height: 100px;
+				resize: none;
+				margin-top: 30px;
+			}
+		}
+	}
+
 }
 
 
