@@ -1,0 +1,5 @@
+$('.question-<%= @answer.question_id %> .visible .line').prepend("<%= escape_javascript(render('answers/answerline', :answer => @answer)) %>");
+$('.form textarea').val('');
+
+
+

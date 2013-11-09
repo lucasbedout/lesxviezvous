@@ -1,0 +1,50 @@
+<div class="question-container question-<%= question.id %>">
+    <div class="post-header">
+        <%= link_to user_path(User.find(question.user_id)) do %> 
+            <%= image_tag User.find(question.user_id).picture %>
+            <div class="user-text">
+                <span class="user-name"><%= User.find(question.user_id).username %></span>       
+                <span class="user-title">Novice</span>
+            </div>
+        <% end %>
+        <span class="user-points">4.292</span>
+        <div class="user-actions">
+            <% if current_user and !current_user.follow? User.find(question.user_id) %>
+                <%= link_to '',  user_follow_path(question.user_id), {remote: true, class: 'add-user' } %>
+            <% end %>
+            <%= link_to '', '#', :class => 'mail-user' %>
+        </div>
+        <div class="moderation">
+            <%= link_to '', question, method: :delete,  data: { confirm: 'Are you sure?' }, :class => 'delete-question'  %>
+        </div>
+    </div>
+    <%= link_to question_path(question), :class => 'post-link' do %>
+        <div class="post-content">
+            <%= question.text %>
+        </div>
+    <% end %>
+    <div class="post-footer">
+        <div class="votes">
+            <%= link_to question.upvotes,  question_vote_path(question.id), {remote: true, class: 'upvotes btn' } %>
+        </div>
+        <div class="share">
+            <% if question.answers.count == 0 %>
+                <%= link_to 'Répondre', question_print_answers_path(question.id), {remote: true, class: 'answers-button' } %>
+            <% else %>
+                <%= link_to question_print_answers_path(question.id), {remote: true, class: 'answers-button' } do %>
+                    <span><%= question.answers.count %> réponse(s)</span>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <div class="answers">
+        <div class="form">
+            <%= render 'answers/fields', { :question => question } %>
+        </div>
+        <div class="line">
+            <% question.answers.each do |answer| %>
+                <%= render 'answers/answerline', { :answer => answer } %>
+            <% end %>
+        </div>
+    </div>
+</div>

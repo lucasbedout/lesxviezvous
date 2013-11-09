@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   attr_accessible :community_id, :status, :text, :upvotes, :user_id
-  has_many :answers
+  has_many :answers, order: 'created_at DESC'
   belongs_to :user
   belongs_to :community
 

@@ -3,5 +3,5 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   belongs_to :user
 
-  validates_presence_of :text, :on => :create, :message => "Impossible de répondre une réponse vide ?"
+  validates_presence_of :text, :on => :create, :message => "Impossible de repondre une reponse vide ?"
 end

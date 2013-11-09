@@ -1,0 +1,9 @@
+if ($('.question-<%= @question.id %> .answers').hasClass('visible')) {
+	$('.question-<%= @question.id %> .answers').hide();
+	$('.question-<%= @question.id %> .answers').removeClass('visible');
+} else {
+	$('.question-<%= @question.id %> .answers').show();
+	$('.question-<%= @question.id %> .answers').addClass('visible');
+};
+
+

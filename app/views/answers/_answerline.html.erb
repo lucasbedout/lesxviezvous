@@ -1,0 +1,19 @@
+<div class="answer-container answer-<%= answer.id %>">
+	<div class="user">
+		<%= image_tag User.find(answer.user_id).picture %>
+		<div class="infos">
+			<div class="name">
+				<%= User.find(answer.user_id).username %>
+			</div>
+			<div class="points">
+				6.235
+			</div>
+		</div>
+	</div>
+	<div class="text">
+		<%= answer.text %>
+	</div>
+	<div class="vote">
+		<%= link_to answer.upvotes,  answer_vote_path(answer.id), {remote: true, class: 'good-answer' } %>
+	</div>
+</div>

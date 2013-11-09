@@ -1,0 +1,9 @@
+<%= form_for(Answer.new, :remote => true ) do |f| %> 
+    <div class="answer-text">
+      <%= f.text_area :text, :placeholder => 'Votre réponse' %>
+      <%= hidden_field_tag :question, question.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Envoyer', :class => 'submit-btn'%>
+    </div>
+<% end %>

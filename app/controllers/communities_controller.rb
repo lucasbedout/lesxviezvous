@@ -6,6 +6,7 @@ class CommunitiesController < ApplicationController
 	def show
 		@community = Community.find(params[:id])
 		@blogline = @community.blogline(:last_shown_obj_id => nil, :limit => 10, :for_user => nil)
+		@questionline = @community.questions 
 	end
 
 	def new

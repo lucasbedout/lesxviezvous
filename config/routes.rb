@@ -25,7 +25,14 @@ Lesxviezvous::Application.routes.draw do
     get 'follow'
   end
 
-  resources :questions 
+  resources :questions do
+    get :vote
+    get :print_answers
+  end
+
+  resources :answers do
+    get 'vote'
+  end
 
   get 'moderation', to: 'posts#moderate'
   get 'fakes', to: 'posts#index_fakes'
