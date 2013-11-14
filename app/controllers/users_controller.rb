@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
-		@blogline = @user.blogline(:last_shown_obj_id => nil, :limit => 10, :for_user => nil)
+		@blogline = @user.blogline(:last_shown_obj_id => nil, :limit => 5, :for_user => nil)
 	end
 
 	def follow

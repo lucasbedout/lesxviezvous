@@ -1,6 +1,6 @@
 <div class="user-profile">
 	<div class="profile-header">
-		<div class="profile-picture" style='background-image: url(<%= @user.picture_large %>);'></div> 
+		<div class="profile-picture" style='background-image: url(<%= @user.picture %>);'></div> 
 		<div class="user-main">
 			<span class="profile-username"><%= @user.username %></span>
 			<span class="profile-title">Novice</span>
@@ -54,6 +54,7 @@
 				<%= render 'posts/postline', {:post => post } %>
 			<% end %>
 		<% end %>
-
+	
 	<% end %>
+	<div id="infinite-scroll"></div>
 </div>

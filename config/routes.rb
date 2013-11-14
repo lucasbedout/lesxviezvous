@@ -19,6 +19,8 @@ Lesxviezvous::Application.routes.draw do
   resources :communities do 
     get :join
     get :leave
+    get :ban
+    get :mute
   end
 
   resources :users do 
@@ -43,6 +45,9 @@ Lesxviezvous::Application.routes.draw do
   resources :users
   resources :sessions
 
+  #Timeline
+  match "/load_more" => "posts#load"
+  match "/timeline/get" => "timeline#show"
 
   # Authentication routes
 

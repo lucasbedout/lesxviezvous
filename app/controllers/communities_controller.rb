@@ -67,4 +67,26 @@ class CommunitiesController < ApplicationController
 	        format.json { render json: @community, status: :created, location: @community }
 	    end
 	end
+
+	def ban
+		@community = Community.find(params[:community_id])
+		@user = User.find(params[:user])
+		if @community.admins_row.include? current_user.id and @user != current_user
+			current_user.kick :user => @user, :from_community => @community
+			redirect_to @community, :flash => { :notice => 'Utilisateur banni'}
+		else 
+			redirect_to @community, :flash => { :error => 'Banissement impossible'}
+		end
+	end
+
+	def mute
+		@community = Community.find(params[:community_id])
+		@user = User.find(params[:user])
+		if @community.admins_row.include? current_user.id and @user != current_user
+			current_user.mute :user => @user, :in_community => @community
+			redirect_to @community, :flash => { :notice => 'Utilisateur muet'}
+		else 
+			redirect_to @community, :flash => { :error => 'Erreur, utilisateur actif'}
+		end
+	end
 end

@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if current_user
-      @posts = current_user.timeline(:last_shown_obj_id => nil, :limit => 10, :for_user => nil)
+      @posts = current_user.timeline(:last_shown_obj_id => nil, :limit => 8, :for_user => nil)
+      @last = @posts.last.item_id_in_line
     else
       @posts = Post.where(status: '3').order('created_at DESC').all;
     end
@@ -14,6 +15,14 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html 
       format.json { render json: @posts }
+    end
+  end
+
+  def load
+    @posts = current_user.timeline(:last_shown_obj_id => params[:id], :limit => 5)
+
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -30,14 +39,10 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    if @post.status != 3
-      redirect_to root_path, :flash => { :error => "Le post n'existe pas ou n'est pas encore valide"}
-    else
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @post }
       end
-    end
   end
 
   # GET /posts/new

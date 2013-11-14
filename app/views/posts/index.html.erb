@@ -1,9 +1,13 @@
-<% @posts.each do |post| %>
-	<% unless post.communities_row.first.blank? %>
-		<% if Community.find(post.communities_row.first).public != false %>
-    		<%= render 'postline', :post => post %>
+<div class="postline" last="<%= @last %>">
+	<% @posts.each do |post| %>
+		<% unless post.communities_row.first.blank? %>
+			<% if Community.find(post.communities_row.first).public != false %>
+	    		<%= render 'postline', :post => post %>
+			<% end %>
+		<% else %>
+			<%= render 'postline', :post => post %>
 		<% end %>
-	<% else %>
-		<%= render 'postline', :post => post %>
 	<% end %>
-<% end %>
+	<div id="infinite-scroll"></div>
+</div>
+
