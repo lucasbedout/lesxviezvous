@@ -19,15 +19,16 @@ class PostsController < ApplicationController
   end
 
   def load
-    if params[:controller] == 'users'
-      @posts = User.find(params[:entity]).blogline(:last_shown_obj_id => params[:id], :limit => 5)
-    elsif params[:controller] == 'community'
-      @posts = Community.find(params[:entity]).blogline(:last_shown_obj_id => params[:id], :limit => 5)
-    else
-      @posts = current_user.timeline(:last_shown_obj_id => params[:id], :limit => 5)
+    if params[:type] == "users"
+        @posts = User.find(params[:entity]).blogline(:last_shown_obj_id => params[:id], :limit => 5)
+    elsif params[:type] == "community"
+        @posts = Community.find(params[:entity]).blogline(:last_shown_obj_id => params[:id], :limit => 5)
+      else
+        @posts = current_user.timeline(:last_shown_obj_id => params[:id], :limit => 5)
     end
 
     respond_to do |format|
+      @last = @posts.last.item_id_in_line
       format.js { render 'posts/load'}
     end
   end

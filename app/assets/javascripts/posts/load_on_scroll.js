@@ -4,7 +4,7 @@ $(window).scroll(function() {
               url: '/load_more',
               data: {
                   id: $('.postline').attr('last'),
-                  controller: $('.postline').attr('controller'),
+                  type: $('.postline').attr('controller'),
                   entity: $('.postline').attr('id')
               },
               dataType: 'script'

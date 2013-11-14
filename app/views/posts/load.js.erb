@@ -4,7 +4,7 @@
 		    $('.postline').append("<%= escape_javascript(render('posts/postline', :post => post)) %>");
 		<% end %>
 	<% end %>
-	$('.postline').attr('last', '<%= @posts.last.id %>')
+	$('.postline').attr('last', '<%= @last %>')	
 <% else %>
     	$('#infinite-scroll').detach();
 <% end %>
