@@ -2,8 +2,6 @@
 	<% @posts.each do |post| %>
 		<% unless post.blank? %>
 		    $('.postline').append("<%= escape_javascript(render('posts/postline', :post => post)) %>");
-		<% else %>
-			$('#infinite-scroll').detach();
 		<% end %>
 	<% end %>
 	$('.postline').attr('last', '<%= @posts.last.id %>')

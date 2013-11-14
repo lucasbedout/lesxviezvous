@@ -48,10 +48,12 @@
 					<%= render 'posts/fields' %>
 				</div>
 			<% end %>
-
-			<% @blogline.each do |post| %>
-				<%= render 'posts/postline', {:post => post } %>
-			<% end %>
+			<div class="postline" last="<%= @last %>" controller="community" id="<%= @community.id %>">
+				<% @blogline.each do |post| %>
+					<%= render 'posts/postline', {:post => post } %>
+				<% end %>
+				<div id="infinite-scroll"></div>
+			</div>
 		</div>
 		<div class="tab-pane" id="questions">
 			<div class="community-question-form">

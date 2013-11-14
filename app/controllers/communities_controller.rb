@@ -5,7 +5,8 @@ class CommunitiesController < ApplicationController
 
 	def show
 		@community = Community.find(params[:id])
-		@blogline = @community.blogline(:last_shown_obj_id => nil, :limit => 10, :for_user => nil)
+		@blogline = @community.blogline(:last_shown_obj_id => nil, :limit => 5, :for_user => nil)
+		@last = @blogline.last.item_id_in_line
 		@questionline = @community.questions 
 	end
 

@@ -19,10 +19,16 @@ class PostsController < ApplicationController
   end
 
   def load
-    @posts = current_user.timeline(:last_shown_obj_id => params[:id], :limit => 5)
+    if params[:controller] == 'users'
+      @posts = User.find(params[:entity]).blogline(:last_shown_obj_id => params[:id], :limit => 5)
+    elsif params[:controller] == 'community'
+      @posts = Community.find(params[:entity]).blogline(:last_shown_obj_id => params[:id], :limit => 5)
+    else
+      @posts = current_user.timeline(:last_shown_obj_id => params[:id], :limit => 5)
+    end
 
     respond_to do |format|
-      format.js
+      format.js { render 'posts/load'}
     end
   end
 

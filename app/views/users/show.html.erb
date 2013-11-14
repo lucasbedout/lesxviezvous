@@ -36,25 +36,23 @@
 			</div>
 		</div>
 	</div>
-
-	<% @blogline.each do |post| %>
-
-		<% unless post.communities_row.first.blank? %>
-			<% if Community.find(post.communities_row.first).public != false %>
+	<div class="postline" last="<%= @last %>" controller="users" id="<%= @user.id %>">
+		<% @blogline.each do |post| %>
+			<% unless post.communities_row.first.blank? %>
+				<% if Community.find(post.communities_row.first).public != false %>
+					<% if @user.reblog? post %>
+						<div class="reblogged-post"><%= render 'posts/postline', {:post => post } %></div>
+					<% else %>
+						<%= render 'posts/postline', {:post => post } %>
+					<% end %>
+				<% end %>
+			<% else %>
 				<% if @user.reblog? post %>
 					<div class="reblogged-post"><%= render 'posts/postline', {:post => post } %></div>
 				<% else %>
 					<%= render 'posts/postline', {:post => post } %>
 				<% end %>
-			<% end %>
-		<% else %>
-			<% if @user.reblog? post %>
-				<div class="reblogged-post"><%= render 'posts/postline', {:post => post } %></div>
-			<% else %>
-				<%= render 'posts/postline', {:post => post } %>
-			<% end %>
+			<% end %>	
 		<% end %>
-	
-	<% end %>
-	<div id="infinite-scroll"></div>
+	</div>
 </div>
