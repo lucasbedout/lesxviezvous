@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   acts_as_inkwell_user
+  searchkick autocomplete: ['username']
 
   attr_accessible :username, :email, :password, :password_confirmation, :picture, :birthdate, :gender, :hobbies, :languages,  :job, :website
 

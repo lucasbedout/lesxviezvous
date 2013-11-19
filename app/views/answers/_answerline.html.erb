@@ -9,11 +9,20 @@
 				6.235
 			</div>
 		</div>
+		<% if answer.status == 1 %><div class="final_answer"><i class="glyphicon glyphicon-ok"></i><span class="valid">Bonne réponse</span></div><% end %>
 	</div>
 	<div class="text">
 		<%= answer.text %>
 	</div>
 	<div class="vote">
 		<%= link_to answer.upvotes,  answer_vote_path(answer.id), {remote: true, class: 'good-answer' } %>
+	</div>
+	<div>
+		<% if current_user.id == Question.find(answer.question_id).user_id && answer.status == 0 %>
+		<%= link_to  answer_valid_path(answer.id), {remote: true, class: 'valid_answer' } do %>
+			<i class="glyphicon glyphicon-ok"></i> 
+			<span class="valid">C'est la réponse que j'attendais</span>
+		<% end %>
+	<% end %>
 	</div>
 </div>

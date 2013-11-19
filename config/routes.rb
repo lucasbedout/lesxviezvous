@@ -34,6 +34,7 @@ Lesxviezvous::Application.routes.draw do
 
   resources :answers do
     get 'vote'
+    get 'valid'
   end
 
   get 'moderation', to: 'posts#moderate'
@@ -42,8 +43,13 @@ Lesxviezvous::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
+
+  match 'search', to: 'search#index', via: [:get, :post]
+  match 'autocomplete', to: 'search#autocomplete', via: [:get, :post]
+
   resources :users
   resources :sessions
+
 
   #Timeline
   match "/load_more" => "posts#load"

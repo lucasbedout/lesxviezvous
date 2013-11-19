@@ -1,7 +1,10 @@
 <nav class="navbar navbar-blue navbar-default navbar-fixed-top" role="navigation">
   <div class="navbar-header center-col">
     <div class="nav nav-left">
-      <input type="search" class="" placeholder="Rechercher un utilisateur, un groupe" />
+      <%= form_tag '/search' do %>
+        <%= text_field_tag :query, params[:query], { :class => 'search', :placeholder => 'Rechercher un utilisateur, un groupe...', autocomplete: "off"} %>
+        <%= submit_tag '', :class => 'search-submit' %>
+      <% end %>
     </div>
     <div class="nav-center">
       <div class="ls-menu">
@@ -123,10 +126,10 @@
                 <%= text_field_tag :name, nil, :placeholder => 'Nom du groupe' %>
               </div>
               <div class="privacy">
-                 <span>Groupe privé ? </span>
-                <%= check_box_tag(:privacy, checked_value = true, unchecked_value = false) %>
+                 <span>Type</span>
+                 <%= select_tag(:privacy, options_for_select([['Public', 'true'], ['Privé', 'false']])) %>
               </div>
-                <%= submit_tag "Créer", class: "btn btn-primary" %>
+              <%= submit_tag "Créer", class: "submit-btn" %>
             <% end %>
             </div>
           </div>

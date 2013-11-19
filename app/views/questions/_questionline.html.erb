@@ -9,7 +9,7 @@
         <% end %>
         <span class="user-points">4.292</span>
         <div class="user-actions">
-            <% if current_user and !current_user.follow? User.find(question.user_id) %>
+            <% if current_user and !current_user.follow? User.find(question.user_id) and current_user.id != question.user_id %>
                 <%= link_to '',  user_follow_path(question.user_id), {remote: true, class: 'add-user' } %>
             <% end %>
             <%= link_to '', '#', :class => 'mail-user' %>
@@ -38,9 +38,11 @@
         </div>
     </div>
     <div class="answers">
-        <div class="form">
-            <%= render 'answers/fields', { :question => question } %>
-        </div>
+        <% if question.status == false %>
+            <div class="form">
+                <%= render 'answers/fields', { :question => question } %>
+            </div>
+        <% end %>
         <div class="line">
             <% question.answers.each do |answer| %>
                 <%= render 'answers/answerline', { :answer => answer } %>

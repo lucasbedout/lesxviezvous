@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
+
 	def show
 		@user = User.find(params[:id])
 		@blogline = @user.blogline(:last_shown_obj_id => nil, :limit => 6, :for_user => nil)
-		@last = @blogline.last.item_id_in_line
+		unless @blogline.blank?
+			@last = @blogline.last.item_id_in_line
+		else
+			@last = "none"
+		end
 	end
 
 	def follow

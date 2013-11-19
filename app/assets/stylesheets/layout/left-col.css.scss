@@ -34,7 +34,6 @@
 
 	.menu {
 		height: 240px;
-		margin-top: 30px;
 
 		.menu-link {
 			margin-top: 4px;
@@ -52,6 +51,7 @@
 				height: 110px;
 				width: 110px;
 				padding-top: 70px;
+				font-size: 13px;
 			}
 
 			a:hover {
@@ -73,15 +73,15 @@
 			}
 		}
 
-		.flops {
-			background-image: image-url("flop.png");
+		.discover {
+			background-image: image-url("discover.png");
 			a {
 				color: $pomegranate;
 			}
 		}
 
-		.moderation {
-			background-image: image-url("moderate.png");
+		.communities {
+			background-image: image-url("communities.png");
 			a {
 				color: $gold;
 			}
@@ -95,7 +95,16 @@
 		}
 
 	}
+
+	.pub {
+		margin-top: 20px;
+		width: 100%;
+		height: 100px;
+		background-color: $content-blue;
+	}
 }
+
+
 
 .left-ranking {
 	background-color: $site-blue;

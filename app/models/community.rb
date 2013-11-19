@@ -3,4 +3,7 @@ class Community < ActiveRecord::Base
   belongs_to :category
   has_many :questions
   acts_as_inkwell_community
+
+  acts_as_inkwell_user
+  searchkick autocomplete: ['name']
 end

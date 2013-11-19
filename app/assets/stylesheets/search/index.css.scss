@@ -1,0 +1,46 @@
+.search-title {
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 50px;
+		margin-left: 10px;
+		color: white;
+		margin-top: 10px;
+}
+
+.result-container {
+	display: inline-block;
+	width: 48%;
+	background-color: $site-blue;
+	float: left;
+	margin-left: 1%;
+	margin-top: 15px;
+
+	img {
+		height: 50px;
+		width: 50px;
+		float: left;
+	}
+
+	.user-text {
+		float: left;
+		display: inline-block;
+		margin-top: 5px;
+		margin-left: 5px;
+
+		span {
+			display: block;
+			color: white;
+		}
+	}
+
+	.user-points {
+		margin-top: 5px;
+	}
+
+	.user-actions {
+		margin-top: 5px;
+		z-index: 100;
+	}
+
+
+}

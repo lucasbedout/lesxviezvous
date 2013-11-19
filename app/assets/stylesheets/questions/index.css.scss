@@ -103,6 +103,7 @@
 
 	.answers {
 		display: none;
+		font-weight: 300;
 		
 		.form {
 			width: 100%;
@@ -115,7 +116,7 @@
 				@media screen and (max-width: 1200px) {
 					width: 80%;
 				}
-				width: 90%;
+				width: 85%;
 				height: 33px;
 				float: left;
 				margin-left: 10px;
@@ -132,7 +133,7 @@
 
 		.answer-container {
 			display: block;
-			min-height: 50px;
+			min-height: 80px;
 			width: 100%;
 			text-align: left;
 			margin-bottom: 10px;
@@ -146,6 +147,7 @@
 				width: 20%;
 				height: 100%;
 				float: left;
+				border-right: 1px solid $post-blue;
 
 				img {
 					width: 50px;
@@ -205,6 +207,22 @@
 				.disabled {
 					background-image: image-url('arrow_up_green.png');
 					outline: none;
+				}
+			}
+
+			.valid_answer, .final_answer {
+				margin-top: 5px;
+				display: inline-block;
+
+				span, i {
+					color: $green-sea;
+					margin-left: 5px;
+				}
+			}
+
+			.valid_answer:hover {
+				span, i {
+					color: $nephrytis;
 				}
 			}
 		}

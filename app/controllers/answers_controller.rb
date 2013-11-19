@@ -41,4 +41,19 @@ class AnswersController < ApplicationController
 			end
 		end
 	end
+
+	def valid
+		@answer = Answer.find(params[:answer_id])
+		@question = Question.find(@answer.question_id)
+
+		@answer.status = 1
+		@question.status = 1
+
+
+		respond_to do |format|
+			if @answer.save and @question.save
+				format.js { render 'valid'}
+			end
+		end
+	end
 end

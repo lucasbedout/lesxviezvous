@@ -37,6 +37,7 @@ $gold: rgb(243, 181, 0);
 @import "layout/left-col";
 @import "layout/center-col";
 @import "layout/right-col";
+@import "layout/typeahead";
 
 // POSTS
 @import "posts/form";
@@ -59,4 +60,8 @@ $gold: rgb(243, 181, 0);
 
 // QUESTIONS
 
-@import "questions/index"
+@import "questions/index";
+
+// SEARCH
+
+@import "search/index";

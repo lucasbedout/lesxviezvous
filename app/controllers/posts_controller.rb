@@ -7,7 +7,11 @@ class PostsController < ApplicationController
   def index
     if current_user
       @posts = current_user.timeline(:last_shown_obj_id => nil, :limit => 8, :for_user => nil)
-      @last = @posts.last.item_id_in_line
+      unless @posts.blank?
+        @last = @posts.last.item_id_in_line
+      else
+        @last = "none"
+      end
     else
       @posts = Post.where(status: '3').order('created_at DESC').all;
     end

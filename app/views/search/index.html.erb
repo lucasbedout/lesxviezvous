@@ -1,0 +1,48 @@
+<div class="search-title">Utilisateurs trouvés</div>
+
+<% if @user.blank? %>
+	<span class="nothing">Aucun utilisateur trouvé</span>
+<% else %>
+	<% @users.each do |user| %>
+		<%= link_to user do %>
+			<div class="result-container">
+					<%= image_tag user.picture %>
+					<div class="user-text">
+			                <span class="user-name"><%= user.username %></span>       
+			                <span class="user-title">Novice</span>
+			        </div>
+		        <span class="user-points">4.292</span>
+		        <div class="user-actions">
+		            <% if current_user and !current_user.follow? user %>
+		                <%= link_to '',  user_follow_path(user.id), {remote: true, class: 'add-user' } %>
+		            <% end %>
+		            <%= link_to '', '#', :class => 'mail-user' %>
+		        </div>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>
+
+<div class="search-title">Communautés trouvées</div>
+
+<% if @communities.blank? %>
+	<span class="nothing">Aucune communauté trouvée</span>
+<% else %>
+	<% @communities.each do |community| %>
+		<%= link_to community do %>
+			<div class="result-container">
+					<%= image_tag community.picture %>
+					<div class="user-text">
+			                <span class="user-name"><%= community.name %></span>       
+			                <span class="user-title">Novice</span>
+			        </div>
+		        <span class="user-points">4.292</span>
+		        <div class="user-actions">
+		            <% if current_user and !community.include_user? current_user and !community.invitations_row.include? current_user.id  %>
+				       <%= link_to '',  community_join_path(@community.id), {remote: true, class: 'add-user', title: 'Rejoindre la communauté' } %>
+				    <% end %>
+		        </div>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>

@@ -89,7 +89,11 @@
 			text-align: center;
 			float: left;
 
-			input {
+			.twitter-typeahead {
+				float: left;
+			}
+
+			input[type="text"] {
 				@media screen and (max-width: 800px) {
 					width: 150px;
 					padding-right: 65px;
@@ -103,11 +107,20 @@
 				@include box-shadow(none);
 				border: transparent;
 				height: 28px;
+			}
+
+			.search-submit {
+				float: right;
+				height: 28px;
+				width: 30px;
+				margin-top: 6px;
 				background-image: image-url('search.png');
 				background-repeat: no-repeat;
-				background-size: 5.5%;
-				background-position: 95%;
-
+				background-size: 55%;
+				background-position: 50%;
+				background-color: #FFF;
+				@include box-shadow(none);
+				border: none;
 			}
 		}
 

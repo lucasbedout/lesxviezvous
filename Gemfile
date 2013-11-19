@@ -41,6 +41,9 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Searching accross models
+gem "searchkick"
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
